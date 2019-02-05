@@ -3,7 +3,8 @@
     "plugins": ["exercises","quiz", "youtube", "responsive-iframes"],
     "links": {
         "sidebar": {
-            "by Shawn Rider": "http://shawnrider.com"
+            "by Shawn Rider": "http://shawnrider.com",
+            "CLI3 upgrade by Rebecca Peltz": "https://github.com/rebeccapeltz"
         }
     },
     "pluginsConfig": {
