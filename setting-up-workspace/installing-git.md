@@ -17,8 +17,6 @@ It is recommended that if you are on a Windows or Mac machine and you have never
 
 If you don't want to install the Github application, you may install Git directly using one of the downloads from the official Git website: [http://git-scm.com/downloads](http://git-scm.com/downloads).
 
-_Please note:_ You will need to have Git properly configured on the command line to complete all of the steps in this book. You may use the Github App to manage your commits to your repository, but your automated deployment tool \(Grunt Build Control\) will use Git from the command line, so it will need your authentication setup properly between your local Git installation and Github.
-
 If you need to download Git directly and install it, you may wish to consult the ["Setting Up Git"](https://help.github.com/articles/set-up-git/) guide from Github.
 
 ## Setting Up Github
