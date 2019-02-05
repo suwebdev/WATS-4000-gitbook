@@ -56,7 +56,7 @@ As we mentioned earlier, the goal of using development environments is that we c
 
 This command builds and compiles all the code in our project and puts it in a directory called `docs` in the root of the project.   
 
-![Webpack Build Report Web View](/img/build-report-web.png)
+![Webpack Build Report Web View](/img/build-report-terminal.png)
 <br>Web View of the Webpack Build Report
 
 Webpack provides us with a handy visual representation of the parts of our deployment package. We can see that the bulk of the package is actually the core dependencies we have in `node_modules`, and the tiny purple bar on the side represents the code we have in our custom app.
