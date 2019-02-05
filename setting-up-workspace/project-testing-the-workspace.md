@@ -1,4 +1,4 @@
-![](/assets/up-and-running-fs.png)# Project: Testing the Workspace
+# Project: Testing the Workspace
 In order to determine whether our development environment is set up properly, it's useful to try cloning and running an existing project. Work along with the following directions to test your workspace.
 
 This project uses the [WATS 4000: Up and Running](https://github.com/suwebdev/wats4000-up-and-running) repository.
