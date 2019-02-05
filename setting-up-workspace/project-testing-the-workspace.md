@@ -39,6 +39,10 @@ You will notice several key parts of the project here. Let's take a quick trip t
 ## Run the Dev Server
 As we work, we want to run the development server. When you do, you should see the app running. You can check it out in your web browser and test out the simple functionality.
 
+To start the dev server, go to the terminal and type:  
+
+`npm run serve`
+
 While we have the dev server running, we can open up our editor and modify some of the files. If we open `src/App.vue` we will see the template that includes the `<h1>` tag for the page. We can modify the contents of that tag and save the file to see the live reload capability of this development server. (We can also play with the CSS in this file if we wish.)
 
 Note: We have not gone over how a Vue.js app works yet, but it's still worthwhile to poke around and see. If things break, we can always reset your clone of the repository.
@@ -48,9 +52,9 @@ Once we done experimenting with the development server, we can quit the server u
 ## Build the Site
 As we mentioned earlier, the goal of using development environments is that we can work with source code that is more friendly and still deliver highly optimized code to our users. To get a feel for how this works, run the following command:
 
-`npm run build --report`
+`npm run build`
 
-This command builds and compiles all the code in our project and puts it in a directory called `dist` in the root of the project. The `--report` flag also produces a report about what parts of our project take up the most space for downloading/serving to our users.
+This command builds and compiles all the code in our project and puts it in a directory called `docs` in the root of the project.   
 
 ![Webpack Build Report Web View](/img/build-report-web.png)
 <br>Web View of the Webpack Build Report
