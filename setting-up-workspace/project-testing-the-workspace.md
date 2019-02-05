@@ -6,8 +6,10 @@ This project uses the [WATS 4000: Up and Running](https://github.com/suwebdev/wa
 ## Fork and Clone
 You will need a Github account to fork the repository. Visit the [repository homepage](https://github.com/suwebdev/wats4000-up-and-running) and click the "fork" button. Once you have completed forking the repository, you can clone it to your local development environment. This will copy all the files from the repository to your workspace.
 
-## Install Dependencies
-In order to get this project to work, we need to install the dependencies. To do so, run the `npm install` command in the project repository. You should see output indicating that NPM has installed quite a few packages (this may take several minutes to complete).
+## Install Dependencies  
+
+The `package.json` file in the root of your project contains information for retrieving software from npmjs.org.  `dependencies` are the packages that will be used by your code and `devDependencies` are the packages that will be use to build your code into static files.  
+In order to get this project to work, we need to install the dependencies. To do so, run the `npm install` command in the project repository. You should see output in the form a a directory called `node_modules` indicating that NPM has installed quite a few packages (this may take several minutes to complete).  The `node_modules` directory can be quite large and there is no reason to save it on github.com, so we include it in a .gitignore file.  You may notice in your IDE, depending on how it is configured, that the `node_modules` directory is a lighter color indicating it won't be pushed to github.com.
 
 Once you have finished installing dependencies, take a look at the project itself.
 
