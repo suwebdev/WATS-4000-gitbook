@@ -57,23 +57,17 @@ As we mentioned earlier, the goal of using development environments is that we c
 This command builds and compiles all the code in our project and puts it in a directory called `docs` in the root of the project.   
 
 ![Webpack Build Report Web View](/img/build-report-terminal.png)
-<br>Web View of the Webpack Build Report
 
-Webpack provides us with a handy visual representation of the parts of our deployment package. We can see that the bulk of the package is actually the core dependencies we have in `node_modules`, and the tiny purple bar on the side represents the code we have in our custom app.
-
-Click around and check out this view, then go back to your terminal to read the text report.
-
-![Webpack Build Report in Terminal](/img/build-report-terminal.png)
 <br>Webpack Build Report in Terminal
 
 In the terminal view of the Webpack Build Report we can more easily see that webpack has combined files and organized them by "chunks". We can see the file size and the file name that has resulted from the processing of these files.
 
-If we look inside the `dist/` folder, which was created inside our repository by the build process, we can see that those files have been saved under `dist/static/` (as well as the other files that make up our site.
+If we look inside the `docs/` folder, which was created inside our repository by the build process, we can see that those files have been saved under `dist/static/` (as well as the other files that make up our site.
 
-![Files in dist folder](/img/dist-folder.png)
-<br>Files in the `dist/` Folder
+![Files in dist folder](/img/docs-folder.png)
+<br>Files in the `docs/` Folder
 
-These files are the results of combining many source files into just a few files for delivery to our users. This cuts down on the number of request a user makes to the server in order to download our application. We also see that the files have been "versioned" with the addition of "hashes" that represent a unique version of that file. These hashes are updated when the contents of the files that are being combined changes. Changing the names of these files when the contents change helps us avoid issues of browsers and networks caching files and serving users old code. (We never want to tell a user to "clear the cache" in their browser again!)
+These files are the results of combining many source files into just a few files for delivery to our users. There is also some transpiling taking place to turn a `.vue` file into HTML/CSS/JavaScript. This cuts down on the number of request a user makes to the server in order to download our application. We also see that the files have been "versioned" with the addition of "hashes" that represent a unique version of that file. These hashes are updated when the contents of the files that are being combined changes. Changing the names of these files when the contents change helps us avoid issues of browsers and networks caching files and serving users old code. (We never want to tell a user to "clear the cache" in their browser again!)
 
 ## Continue Exploring
 It's worthwhile to continue exploring the code to get a better understanding of what parts we're dealing with. Think of this as moving into a new neighborhood: There are already buildings and streets here, so we don't need to build everything from scratch. But we do need to find our ways and get comfortable in this new environment.
