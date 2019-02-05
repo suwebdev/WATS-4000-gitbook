@@ -10,7 +10,7 @@ If you have not yet set up Git and Github, follow the links below to get these s
 
 One of the easiest ways to install Git on your computer is to install the Github application. Here are links for the application on Windows and Mac:
 
-* [Github App for Windows](https://windows.github.com/)
+* [Git for Windows](https://gitforwindows.org/)
 * [Github App for Mac](https://mac.github.com/)
 
 It is recommended that if you are on a Windows or Mac machine and you have never set up Git before, you should start with the Github app. This app is useful to manage your code, and it also helps you set up your global Git preferences.
