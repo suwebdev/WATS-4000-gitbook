@@ -36,12 +36,24 @@ You will notice several key parts of the project here. Let's take a quick trip t
 * `README.md` &ndash; This file contains a description of the project and instructions for working with it.
 * `vue.config.js` &ndash; This is a config file used to specify options for the build.  This is where you find the option to build to the `docs` directory and you can turn the linter off in here.  Any other build options can be added to this file.
 
-## Run the Dev Server
+## Run the Dev Server  
+
+The `npm run` command looks at the `scripts` object in package.json to find the commands to run.  If you look at the package.json script for this project you can see that it the commands map to a call to the `vue-cli-service` program.  You can also see that this program is installed locally when you run `npm install` because it is in the `devDependencies` object.
+
+![Project Folders](/img/package-json-script.png)
+
+We use the `serve` script to run our Dev Server. 
+
 As we work, we want to run the development server. When you do, you should see the app running. You can check it out in your web browser and test out the simple functionality.
 
 To start the dev server, go to the terminal and type:  
 
 `npm run serve`
+
+The output of this command indicates that we have a dev server running at `http://localhost:8080`.  This is an in memory server and there are no files written to disk.
+
+![Project Folders](/img/npm-run-serve.png)
+
 
 While we have the dev server running, we can open up our editor and modify some of the files. If we open `src/App.vue` we will see the template that includes the `<h1>` tag for the page. We can modify the contents of that tag and save the file to see the live reload capability of this development server. (We can also play with the CSS in this file if we wish.)
 
