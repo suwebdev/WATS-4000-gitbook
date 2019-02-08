@@ -39,7 +39,14 @@ In order to create a new app with the Vue-CLI, change directory into your Projec
 
 ```
 vue create test-project
+```  
+
+If you're using `git bash` with Windows you will need to run this command to create a project:
+
 ```
+winpty vue.cmd create test-project
+```
+You can read the [vue-create docs](https://cli.vuejs.org/guide/creating-a-project.html#vue-create) regarding running this command with `git bash`.
 
 Once initiated, we will be asked some questions. At this point, it doesn't matter very much which answers we give, since we are just using this project to poke around and see what we get. Here is a screenshot of what the process looks like when completed, and we can see a set of answers that will create a minimal project with no test frameworks or extras.
 
