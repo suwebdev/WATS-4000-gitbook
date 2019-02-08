@@ -22,6 +22,7 @@ vue-cli
     <p>When installing applications with Node Package Manager (NPM), we use the <code>-g</code> flag to install any Node module "globally" so that it can be used in any project. When we install Vue-CLI we use the <code>-g</code> flag so that we can run the <code>vue</code> command from anywhere.</p>
     <p>NOTE: In this book we are using version 3 of the CLI. Version 2 of the Vue CLI was available in a package called <code>vue-cli</code>.  NPM provides the <code>@&lt;organization&gt;/</code> prefix to create <a href="https://docs.npmjs.com/misc/scope" target="_blank">scoped packages</a>.  Scoped packages provide namespacing so that an organization can create multiple packages under a single name.  If you have installed version 2 of the Vue CLI you will need to uninstall it using this command <code>npm uninstall vue-cli -g</code>.</p>
     <p>  It's important to see the distinction between the Vue framework code which is not installed globally and the Vue CLI code which is installed globally.  You will see an entry in your package.json file to install Vue locally.</p>
+    <p>Once you have installed @vue/cli globally you can keep it updated without uninstalling it.  Just run <code>npm update -g @vue/cli</code></p>
 </div>
 
 ## Using Vue-CLI
@@ -30,12 +31,14 @@ The Vue-CLI tool allows us to quickly bootstrap projects using project templates
 
 Throughout this book it is recommended to use the `webpack` template, which defines a project with all the features we will explore throughout the rest of this book. Webpack is a popular application bundling and build tool, and it is used with many technologies (including React and Angular). Webpack handles dependency management (making sure all our third-party modules are available to our application when we deploy) and build process (all the tasks that must happen to package our application for deployment). Webpack is advantageous because it handles things that other tools (such as Browserify) rely on external helpers (like Gulp or Grunt) to handle. 
 
-In short, Webpack keeps the burden on us, as developers, very low, and the way that the official Vue.js template for a Webpack-based application is configured is comfortable to use. We will be investigating how this template is put together and how we can use it more throughout the rest of this book, but for now it might be interesting to look through [the documentation of the Vue.js Webpack Template](https://vuejs-templates.github.io/webpack/) to get an idea of all the things that are in there. Keep in mind that we don't need to understand or master all of this stuff right now. As we work through building apps and making them available to the public, we will touch on many of these things.
+In short, Webpack keeps the burden on us, as developers, very low, and the way that the official Vue.js template for a Webpack-based application is configured is comfortable to use. We will be investigating how this template is put together and how we can use it more throughout the rest of this book, but for now it might be interesting to look through [the documentation of the Vue.js Webpack Template](https://cli.vuejs.org/guide/webpack.html#simple-configuration) to get an idea of all the things that are in there. Keep in mind that we don't need to understand or master all of this stuff right now. As we work through building apps and making them available to the public, we will touch on many of these things.
+
+We'll provide some configuration files that can override some of the default template configuration.  These configuration files can help with issues like deploying to a `docs` directory instead of a `dist`directory for deployment on github.com's gh-pages.
 
 In order to create a new app with the Vue-CLI, change directory into your Projects area and run this command:
 
 ```
-vue init webpack test-project
+vue create test-project
 ```
 
 Once initiated, we will be asked some questions. At this point, it doesn't matter very much which answers we give, since we are just using this project to poke around and see what we get. Here is a screenshot of what the process looks like when completed, and we can see a set of answers that will create a minimal project with no test frameworks or extras.
