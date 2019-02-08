@@ -41,57 +41,85 @@ In order to create a new app with the Vue-CLI, change directory into your Projec
 vue create test-project
 ```  
 
-If you're using `git bash` with Windows you will need to run this command to create a project:
+If you're using `git bash` with **Windows** you will need to run this command to create a project:
 
 ```
 winpty vue.cmd create test-project
 ```
-You can read the [vue-create docs](https://cli.vuejs.org/guide/creating-a-project.html#vue-create) regarding running this command with `git bash`.
+You can read the [vue-create docs](https://cli.vuejs.org/guide/creating-a-project.html#vue-create) regarding running this command with `git bash`.  You can add an alias to your `~/.bashrc` file by pasting in `alias vue='winpty vue.cmd`.  If your `/.bashrc` file doesn't exist you can create it using the bash touch command `touch ~./bashrc`.
 
-Once initiated, we will be asked some questions. At this point, it doesn't matter very much which answers we give, since we are just using this project to poke around and see what we get. Here is a screenshot of what the process looks like when completed, and we can see a set of answers that will create a minimal project with no test frameworks or extras.
+Once initiated, we will be presented with a choice as to whether to accept the default
 
-![vue init results](/img/vue-init.png)
-<br>The results of the `vue init` command.
+![](/assets/choose-the-default.png)
+
+... or manually make some configuration choices. The image below show manually choosing the default. You use your up/down arrow keys to select in the command line.  If you choose the manual selection, you will be presented with a series of choices.  The screen shots below indicate default choices.
+
+![](/assets/manually-select-the-default.png)  
+
+![](/assets/choose-error-detection-linter.png)  
+
+![](/assets/saving-configs-to-separate-files.png)  
+
+![](/assets/not-saving-to-future-projects.png)
+
+For the work in this course you will usually be able to choose the default.  It's possible to modify these choices after the initialization through configuration and/or additional commands.
+
+The default choices we are making provide the following functionality;
+
+* `babel` &mdash; code libraries that can transpile `.vue` files which can contain HTML, CSS and JavaScript into static HTML, CSS and JavaScript files as required by the browser  
+* `linter` &mdash; code library that provides formatting and linting (syntax and style error detection)  
+
+
+Here is a screenshot of what the process looks like when completed, and we can see a set of answers that will create a minimal project with no test frameworks or extras.
+
+![vue create results](/assets/vue-create-output.png)
+<br>The results of the `vue create` command.
 
 This process will create a new directory called `test-project/` (we can call our projects whatever we'd like). We can also see that directions for getting going with development are printed after the command finishes. Change directory into the `test-project/` directory and we should be able to see all the files created for us. 
 
 Inside the repository, we should see the following files and directories:
 
 ```bash
-drwxr-xr-x  13 shawnr  staff   442B Sep 24 13:09 .
-drwxr-xr-x  51 shawnr  staff   1.7K Sep 24 13:09 ..
--rw-r--r--   1 shawnr  staff   312B Sep 24 13:09 .babelrc
--rw-r--r--   1 shawnr  staff   147B Sep 24 13:09 .editorconfig
--rw-r--r--   1 shawnr  staff   145B Sep 24 13:09 .gitignore
--rw-r--r--   1 shawnr  staff   197B Sep 24 13:09 .postcssrc.js
--rw-r--r--   1 shawnr  staff   466B Sep 24 13:09 README.md
-drwxr-xr-x  11 shawnr  staff   374B Sep 24 13:09 build
-drwxr-xr-x   5 shawnr  staff   170B Sep 24 13:09 config
--rw-r--r--   1 shawnr  staff   200B Sep 24 13:09 index.html
--rw-r--r--   1 shawnr  staff   1.6K Sep 24 13:09 package.json
-drwxr-xr-x   6 shawnr  staff   204B Sep 24 13:09 src
-drwxr-xr-x   3 shawnr  staff   102B Sep 24 13:09 static
+becky-mac:temp peltzr$ cd test-project
+becky-mac:test-project peltzr$ ls -la
+total 856
+drwxr-xr-x   14 peltzr  staff     448 Feb  8 15:18 .
+drwxr-xr-x   12 peltzr  staff     384 Feb  8 15:18 ..
+-rw-r--r--    1 peltzr  staff      33 Feb  8 15:18 .browserslistrc
+-rw-r--r--    1 peltzr  staff     353 Feb  8 15:18 .eslintrc.js
+drwxr-xr-x   13 peltzr  staff     416 Feb  8 15:18 .git
+-rw-r--r--    1 peltzr  staff     214 Feb  8 15:18 .gitignore
+-rw-r--r--    1 peltzr  staff     365 Feb  8 15:18 README.md
+-rw-r--r--    1 peltzr  staff      53 Feb  8 15:18 babel.config.js
+drwxr-xr-x  799 peltzr  staff   25568 Feb  8 15:18 node_modules
+-rw-r--r--    1 peltzr  staff  406634 Feb  8 15:18 package-lock.json
+-rw-r--r--    1 peltzr  staff     517 Feb  8 15:18 package.json
+-rw-r--r--    1 peltzr  staff      59 Feb  8 15:18 postcss.config.js
+drwxr-xr-x    4 peltzr  staff     128 Feb  8 15:18 public
+drwxr-xr-x    6 peltzr  staff     192 Feb  8 15:18 src
 ```
 
-We can see that we have some configuration files, including a `.babelrc` that sets up how the Babel linter will work for us. We also have a `package.json` file that lists all the Node.js modules our application depends upon. there is a `build` directory, which contains files that control how the site is built and packaged for deployment. There is also a `config` directory, which contains several configuration files that affect how the app is built and also how the development server and other components of the system work. Inside the `src` directory is the actual content of our application. There is also a `static` directory that will contain static media files that need to be packaged with the site, but which do not require post-processing by the build tools.
+We can see that we have some configuration files, including a `babel.config.rc` that sets up how the Babel will work for us. There is also a `eslintrc.js` that configures how the linter will work.  We also have a `package.json` file that lists all the Node.js modules our application depends upon. Inside the `src` directory is the actual content of our application. There is also a `public` directory that will contain static media files but which do not require post-processing by the build tools but that need to be packaged with the site and the `index.html` file that will be served to the browser. 
 
 Over the next several sections we will look at many parts of this project skeleton and examine the features of this project template. For now, it's important to follow the remaining steps to get the project ready for development.
 
+The create process has run `npm install` for us and there is a node_modules directory created.  There are also `.git` directory which means we have a local git repo and a `.gitignore` file which contains directories and files to exclude from git.
+
 Run the following command to install all of the Node.js modules our site depends upon:
-
-```
-npm install
-```
-
-Once that command finishes, we should see an additional `node_modules/` directory in the root of our project repository. This directory will contain all of the dependencies we have in our system. There will be a lot of these. Some are used for our development tools, and others are packaged up with our site and delivered to our users.
 
 Now that we have everything installed to run our project, we can test it out by running the development server with this command:
 
 ```
-npm run dev
+npm run serve
 ```
 
-We will want to keep that command handy, because that is how we will run the development server whenever we want to do work. The development server will run while we are working and will automatically refresh the page when we make changes to our files. It will also alert us to many issues that might come up in our code as we develop.
+The output of the serve command is show below.  A server using  the 8080 port is created and it show using localhost and the ip address on your network.  This ip address allows you to share your dev code with anyone running on your network.  This is a live server in that, if you view it in your browser, modifying the code will automatically update the browser.
+
+![](/assets/npm-run-serve.png)
+
+We will want to keep that command handy, because that is how we will run the development server whenever we want to do work. The development server will run while we are working and will automatically refresh the page when we make changes to our files. It will also alert us to many issues that might come up in our code as we develop.  You might have noticed that the last part of the output created by the `vue create` command reminds you that you can change directory to your new project and run `npm run serve`.
+
+Remember from the earlier exercise that this server will run until you press CTRL-c to end it.
 
 Once we have the site up and running on the development server, we can poke around and get to know our Vue.js app a little better.
 
