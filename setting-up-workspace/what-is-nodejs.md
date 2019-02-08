@@ -12,7 +12,7 @@ The specific Javascript engine Node.js uses is called V8, and it is the engine t
 
 Node allows developers to create tiny Javascript applications called "modules", and then to string those modules together into larger and more complex applications. There are thousands of "Node modules", as they are known. Developers manage modules with a tool called [NPM](https://www.npmjs.com/) \(Node Package Manager\), which is installed when you install Node.js.
 
-We will use a variety of extra modules to add functionality to our website, and to do so we will use NPM. NPM is akin to [`apt-get`](https://help.ubuntu.com/community/AptGet/Howto), [`homebrew`](https://brew.sh/), or other tools you may have encountered working on Linux or Unix systems.  Package Managers like `npm` are responsible for accessing code on a repository and downloading it to working environment local your local dev environment.  You can think of npm as a large account on github containing many repositories.  Anyone can create an account on npm and upload a package.
+We will use a variety of extra modules to add functionality to our website, and to do so we will use NPM. NPM is akin to [`apt-get`](https://help.ubuntu.com/community/AptGet/Howto), [`homebrew`](https://brew.sh/), or other tools you may have encountered working on Linux or Unix systems.  These package managers are programs that can reach out to repositories on the internet and pull down code for use in development.  Take a moment to explore [npmjs.org](https://npmjs.org), the web app that allows you to search the npm repository and read about the opensource JavaScript code that is available to you. Anyone who creates a valid package.json file for their code can submit it to the npm repository.
 
 ## About Vue-CLI
 
