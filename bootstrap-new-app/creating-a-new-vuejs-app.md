@@ -4,13 +4,15 @@ Creating a new Vue.js application is a fairly straightforward process, and it is
 
 ## Install Vue-CLI
 
-In order to use the [Vue-CLI](https://github.com/vuejs/vue-cli) tool, we must first install it. This software requires Node.js to work, and it can be installed using NPM. To install Vue-CLI in our development environment, run this command:
+In order to use the [Vue-CLI](https://cli.vuejs.org) tool, we must first install it. This software requires Node.js to work, and it can be installed using NPM. To install Vue-CLI in our development environment, run this command:
 
 ```
-npm install -g vue-cli
+npm install -g @vue/cli
 ```
 
 This will install Vue-CLI globally so we can use it anywhere. Once the installation is complete, we can check the version that was installed by running `vue --version`. If everything went smoothly, we should see the version number displayed. We can also run `vue --help` to see a list of commands we can use, or to get more information about specific commands.
+
+vue-cli
 
 <div class="tip-box">
     <h3>Installing "local" Versus "global" Dependencies</h3>
@@ -18,6 +20,8 @@ This will install Vue-CLI globally so we can use it anywhere. Once the installat
     <p>Consider the way we installed all of those dependencies into the <code>node_modules/</code> directory in our project in the last section. All of those dependencies were "local" to the project because they were installed in a directory within the project repository.</p>
     <p>However, there are some tools we might need to use across multiple projects. This often happens with tools like Vue-CLI, which can be used to bootstrap and work with many different projects. In these cases, we want to install the tools "globally" so that we can use them in any project.</p>
     <p>When installing applications with Node Package Manager (NPM), we use the <code>-g</code> flag to install any Node module "globally" so that it can be used in any project. When we install Vue-CLI we use the <code>-g</code> flag so that we can run the <code>vue</code> command from anywhere.</p>
+    <p>NOTE: In this book we are using version 3 of the CLI. Version 2 of the Vue CLI was available in a package called <code>vue-cli</code>.  NPM provides the <code>@&lt;organization&gt;/</code> prefix to create <a href="https://docs.npmjs.com/misc/scope" target="_blank">scoped packages</a>.  Scoped packages provide namespacing so that an organization can create multiple packages under a single name.  If you have installed version 2 of the Vue CLI you will need to uninstall it using this command <code>npm uninstall vue-cli -g</code>.</p>
+    <p>  It's important to see the distinction between the Vue framework code which is not installed globally and the Vue CLI code which is installed globally.  You will see an entry in your package.json file to install Vue locally.</p>
 </div>
 
 ## Using Vue-CLI
