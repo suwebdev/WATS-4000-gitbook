@@ -32,7 +32,7 @@ Looking at this listing, we can see a `main.js` file and an `App.vue` file. The 
 
 When the `App` component is executed, it runs the code contained in `App.vue`. This code defines a `<template>` tag, a `<script>` tag, and a `<style>` tag. When working with Vue.js components, we keep our HTML, JavaScript, and CSS in one location. Our CSS is automatically scoped so it will only affect the specific component, which helps prevent issues of CSS overlapping between components. The logic that makes the component function is included between the `<script>` tags, and that logic is applied to the template defined in the `<template>` tag.
 
-![](/assets/vue-src-hello.png)
+![](/assets/hello-src.png)
 
 <br>Code for App and Hello Components
 
