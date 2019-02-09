@@ -254,7 +254,7 @@ export default {
   },
   data () {
     return {
-      msg: 'This Data Has Been Altered',
+      name: 'Becky'
       num1: 42,
       num2: 78
     }
