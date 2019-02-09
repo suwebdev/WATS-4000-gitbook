@@ -16,6 +16,7 @@ Once you have installed Vue Devtools into your browser, you can test the tool by
 
 When we bring up the Vue Devtools tab, we can inspect the Vue application to see the current values of all the components we've defined in our application. In the example screenshot above, we can see that we have one component (the Editor) and it has a single data value. This data value can be changed by typing into the editor textarea, and the changes will be computed and reflected on the right side of the screen. We can see how the Vue Devtools information updates in real-time as we type.
 
+## Inspect Data
 ![Vue Devtools updates values as they are changed](/img/vue-devtools-anim-values.gif)
 <br> Vue Devtools updating values as they are changed.
 
@@ -24,6 +25,21 @@ The updates to any value in the context of our application components is almost 
 The Vue Devtools offers additional insights into how our apps are functioning that will be more useful when we broaden our understanding of the framework. It will track events in real-time as they are signaled, and it will show us the full history of the state management tool, [Vuex](https://vuex.vuejs.org/en/). 
 
 These are powerful features for debugging our Vue.js apps, and Vue Devtools is a major reason why developers enjoy their experience with Vue.js. We will make good use of Vue Devtools throughout this book, so be sure to get it installed and test it out with some simple projects. When things go wrong in our apps, we will want to look at Vue Devtools to help us figure out how to fix it.
+
+## Inspect Code
+
+With Vue Dev Tools installed you can also debug your code even though it's being served in minified form.  The build process creates a `.map` file that Vue Dev Tools can use to recreate the original code so that it can be debugged during run time.
+
+![Find the original code](/assets/vuedevtools-find-vue-js.png)
+<br>
+Find the original code by click on `webpack://` in the lower left pane of the Dev Tools under the Sources tab. You can drill down there to find your code as written.
+
+You can then set breakpoints in this code.  When you refresh the page or trigger an event, like clicking on a button, you can step through the code.
+
+![Set breakpoints on original code](/assets/vuedevtools-debug-vue-js.png)
+<br>
+Clicking the `Calculate` button runs the `calculateProject` function.
+
 
 
 
