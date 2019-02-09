@@ -254,7 +254,7 @@ export default {
   },
   data () {
     return {
-      name: 'Becky'
+      name: 'Becky',
       num1: 42,
       num2: 78
     }
