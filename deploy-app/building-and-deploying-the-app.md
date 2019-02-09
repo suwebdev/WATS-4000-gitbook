@@ -11,7 +11,7 @@ npm run build
 
 Since we made the changes to redirect output of the build process to the `docs/` directory, we should see that directory was created. If we look inside it, we should see something like this:
 
-![Directory listing of docs/](/img/docs-listing.png)
+![](/assets/built-docs.png)
 <br>Directory listing of `docs/`
 
 Our files have been properly combined, processed, and built into a static website. We are now ready to deploy the site.
