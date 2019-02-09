@@ -194,7 +194,7 @@ export default {
 
 This logic does not do too much except define the `props` function with an object that contains the `msg` property. The `props` object is what gets revealed to the template context for processing. 
 
-We can add a name property to this componet
+We can add a `nam`e property to this componet
 Any property of the `data` object is accessible as a variable inside the template. The `msg` property is used in the `Hello` component template to create the content of the `<h1>` tag:
 
 ```
