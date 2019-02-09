@@ -166,7 +166,18 @@ Here is what our page looks like after we make these style changes:
 These are not the most amazing styles, but hopefully they help bring how things work into focus.
 
 ### The Logic
-The last part of the component that we have to explore is the logic itself. For the most part, this logic is pretty simple when it is generated in the project skeleton. The script tags in the default `Hello` component contain the following code:
+The last part of the component that we have to explore is the logic itself. For the most part, this logic is pretty simple when it is generated in the project skeleton. The script tags in the default `HelloWorld` component contain the following code:
+
+```
+<script>
+export default {
+  name: 'HelloWorld',
+  props: {
+    msg: String
+  }
+}
+</script>
+```
 
 ```
 <script>
@@ -181,7 +192,10 @@ export default {
 </script>
 ```
 
-This logic does not do too much except define the `data` function with an object that contains the `msg` property. The `data` object is what gets revealed to the template context for processing. Any property of the `data` object is accessible as a variable inside the template. The `msg` property is used in the `Hello` component template to create the content of the `<h1>` tag:
+This logic does not do too much except define the `props` function with an object that contains the `msg` property. The `props` object is what gets revealed to the template context for processing. 
+
+We can add a name property to this componet
+Any property of the `data` object is accessible as a variable inside the template. The `msg` property is used in the `Hello` component template to create the content of the `<h1>` tag:
 
 ```
 <h1>{{ msg }}</h1>
