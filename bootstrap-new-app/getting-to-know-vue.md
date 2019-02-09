@@ -45,10 +45,10 @@ The import statement is how we can let modern JavaScript files know about other 
 
 We can see, based on the highlights in the image above, that the `HelloWorld` component is referenced in the template for the `App` component. The `<HelloWorld/>` line indicates where the content for the `HelloWorld` component should be shown. It can be difficult to imagine what this looks like when it is displayed to the user. This next screenshot should help.
 
-![Vue.js App Components](/img/vue-app-component-web2.png)
+![](/assets/helloworld-ss.png)
 <br>Vue.js App Components
 
-The image above shows the default page rendered when running the project skeleton. The green area represents the part of the page taken over by the `App` component. The `Hello` component is inserted inside of the `App` component. The blue area represents the part of the page that is generated and controlled by the `Hello` component.
+The image above shows the default page rendered when running the project skeleton. The logo and Welcome message are in the coded in the `App` component. The `HelloWorld` component is inserted inside of the `App` component. All of the links are encapuslated in the `HelloWorld` component.
 
 ## Templates and Data (and Methods)
 
@@ -56,13 +56,17 @@ In each Vue.js Component, we will probably provide some HTML for a template. Wit
 
 ### Output Data Values
 
-In a Vue.js template, we can output data values using the "double curly brace" syntax. This is often called "mustache" templates (because curly braces look like sideways mustaches). Here is an example from the `Hello.vue` file:
+In a Vue.js template, we can output data values using the "double curly brace" syntax. This is often called "mustache" templates (because curly braces look like sideways mustaches). Here is an example from the `HelloWorld.vue` file:
 
 ```
 <h1>{{ msg }}</h1>
 ```
 
-This example will output the value of the `msg` property defined in the `data` function. Most components will define some properties in their `data` function. Managing data and binding data properly to template elements is key to using templates effectively.
+This example will output the value of the `msg` property defined in the `props` object. The `props` object allows a child component to receive data from its parent.  Notice that the `msg` attribute contains the message that is named in the `HelloWorld` `prop`.
+
+![](/assets/using-props.png)
+
+We'll also see a `data` object can be used to create data within a component.  Most components will define some properties in their `data` function. Managing data and binding data properly to template elements is key to using templates effectively.
 
 ### Directives
 
