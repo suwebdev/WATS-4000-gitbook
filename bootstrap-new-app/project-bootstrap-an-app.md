@@ -33,8 +33,7 @@ npm run serve
 We should see the development server start up.  You can CMD (Mac)-click or CTRL (Windows)-click to open the browser.
 
 
-
-![Default screen from webpack project template](/img/vue-default-web.png) 
+![](/assets/helloworld-ss.png)
 <br>Default screen from Webpack project template
 
 If we see a screen that looks like the one above, then we have successfully installed our dependencies and our project is up and running. Now that we have a working project, we can begin to explore some of the parts of the application and see how they work together. The next steps are meant to expose us to different aspects of the software, but rest assured that we will cover these concepts and techniques in more depth in future sections.
