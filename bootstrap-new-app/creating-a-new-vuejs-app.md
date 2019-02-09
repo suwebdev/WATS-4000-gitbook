@@ -52,7 +52,7 @@ Once initiated, we will be presented with a choice as to whether to accept the d
 
 ![](/assets/choose-the-default.png)
 
-... or manually make some configuration choices. The image below show manually choosing the default. You use your up/down arrow keys to select in the command line.  If you choose the manual selection, you will be presented with a series of choices.  The screen shots below indicate default choices.
+... or manually make some configuration choices. The image below show manually choosing the default. You use your up/down arrow keys to select in the command line.  If you choose the manual selection, you will be presented with a series of choices. The choices below will load babel and a linter.  
 
 ![](/assets/manually-select-the-default.png)  
 
@@ -69,6 +69,7 @@ The default choices we are making provide the following functionality;
 * `babel` &mdash; code libraries that can transpile `.vue` files which can contain HTML, CSS and JavaScript into static HTML, CSS and JavaScript files as required by the browser  
 * `linter` &mdash; code library that provides formatting and linting (syntax and style error detection)  
 
+If you accept the original default, you won't get a linter config file.
 
 Here is a screenshot of what the process looks like when completed, and we can see a set of answers that will create a minimal project with no test frameworks or extras.
 
