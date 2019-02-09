@@ -18,7 +18,7 @@ vue create test-project
 
 Answer the questions like we see in the screenshot below:
 
-![](/assets/choose-the-default.png)
+![Choose the default](/assets/choose-the-default.png)
 <br>The results of the `vue create` command.
 
 Once the project skeleton is available, `cd` into the directory where your project was created.
@@ -96,7 +96,7 @@ We can see from the page in the browser that this code is creating most of the c
 
 These changes result in the following changes in the browser:
 
-![](/assets/2-things.png)
+![Add a list](/assets/2-things.png)
 <br>After changes to the template
 
 Vue.js component templates can have any HTML in them. We can create whatever structures we need, and they can even include other component tags (as with the `src/App.vue` file, which uses the `HelloWorld` component in its template). Any HTML that shows up between the `<template>` tags will be inserted into the app when this component is executed.
@@ -160,7 +160,7 @@ By using the attribute selector these style definitions are sure to never apply 
 
 Here is what our page looks like after we make these style changes:
 
-![](/assets/2-things-with-style.png)
+![Style the list](/assets/2-things-with-style.png)
 <br>The list after style changes
 
 These are not the most amazing styles, but hopefully they help bring how things work into focus.
@@ -178,11 +178,12 @@ export default {
 }
 </script>
 ```
-
+#### props
 This logic does not do too much except define the `props` function with an object that contains the `msg` property. The `props` object is what gets revealed to the template context for processing. 
 
-We can add a `name` property to this component using the `data` object.
-Any property of the `data` object is accessible as a variable inside the template. The `name` can be added to the  `HelloWorld` component template to create the content of the `<h3>` tag:
+#### data
+We can add a `name` property to this component using the `data` function.  The data function must return an object which can contain properties (key:value pairs).
+Any property of the `data` object is accessible as a variable inside the template. The `name` property can be added to the  `HelloWorld` component template to create the content of the `<h3>` tag:
 
 ```
 <script>
@@ -199,7 +200,7 @@ export default {
 }
 </script>
 ```
-Then add a header to the template.
+Then add an `<h3>` header to the template.
 
 ```
 <template>
@@ -219,15 +220,18 @@ Then add a header to the template.
 
 Notice how we use the double curly braces (`{{ variableName }}`)to output the value of a variable in a template. This is a common convention among templating languages, especially in JavaScript frameworks.
 
-We can change the message of that tag by altering the definition of the `msg` property in the script:
+We can change the name  by altering the definition of the `name` property in the script.  Replace `<put your name here>` with your own name.
 
 ```
 <script>
 export default {
   name: 'hello',
+  props: {
+    msg: String
+  },
   data () {
     return {
-      msg: 'This Data Has Been Altered'
+      name: '<put your name here>'
     }
   }
 }
@@ -236,7 +240,7 @@ export default {
 
 Once we have made that change to the data being piped into our application, we can see the change in the browser:
 
-![Altered H1 content](/img/project-bootstrap4-h1.png)
+![Your name rendered in template](/assets/data-name.png)
 <br>Altered H1 content
 
 We can even add additional data to the object and then refer to those variables in our template. First, we update the script:
@@ -245,6 +249,9 @@ We can even add additional data to the object and then refer to those variables 
 <script>
 export default {
   name: 'hello',
+  props: {
+    msg: String
+  },
   data () {
     return {
       msg: 'This Data Has Been Altered',
@@ -256,7 +263,7 @@ export default {
 </script>
 ```
 
-Then we update the template:
+Then we update the template by asking about multiplying 2 numbers:
 
 ```
 <template>
@@ -264,18 +271,19 @@ Then we update the template:
   <h1>{{ msg }}</h1>
   <p>What is {{ num1 }} times {{ num2 }}?</p>
   <h2>2 Things that are difficult in JavaScript</h2>
-    <ol>
-      <li>naming things</li>
-      <li>recursion</li>
-      <li>off-by-one errors</li>
-    </ol>
+  <h3>{{ name }}</h3>
+  <ol>
+    <li>naming things</li>
+    <li>recursion</li>
+    <li>off-by-one errors</li>
+  </ol>
   </div>
 </template>
 ```
 
 This results in the following display in the browser:
 
-![New variables in template](/img/project-bootstrap6-newvars.png)
+![New variables in template](/assets/multiply-2-nums.png)
 <br>New variable in the template
 
 Of course, now that we have those new variables in the template, we can try doing even more.
