@@ -39,7 +39,7 @@ Please enjoy this self-check quiz to help you identify key concepts, points, and
         <p>What command do we use to build our Vue.js applications for deployment?</p>
         <answer><code>build site</code></answer>
         <answer correct><code>npm run build</code></answer>
-        <answer><code>npm run dev</code></answer>
+        <answer><code>npm run serve</code></answer>
         <answer><code>webpack go</code></answer>
         <explanation>We use the <code>npm run build</code> command to build our Vue.js applications for deployment.</explanation>
     </question>
