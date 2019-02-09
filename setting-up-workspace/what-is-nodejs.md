@@ -5,7 +5,6 @@ We will work in what is known as a "Node-based" environment. That is to say, a d
 We will also use [Git](http://git-scm.org) and [Github](http://github.com) to manage our code and deploy our projects.
 
 ## About Node.js
-<<<<<<< HEAD
 
 Node.js is a development platform that runs Javascript outside of the web browser. This is noteworthy because there are no other major implementations of Javascript outside of the web browser.
 
@@ -20,7 +19,6 @@ We will use a variety of extra modules to add functionality to our website, and 
 We will use the [Vue.js](https://vuejs.org) SPAF \(single page application framework\) as the example platform for this entire book. That means examples will be given in the context of Vue.js, and we will be looking at a lot of Vue.js-specific techniques and tools. This will allow us to learn both more general concepts and pragmatic skills we can use in day-to-day work.
 
 In order to quickly get started on building a Vue.js application, we will use the [Vue-CLI](https://cli.vuejs.org/) to bootstrap our project skeletons \(we will talk more about that next week\). The "CLI" in "Vue-CLI" stands for "Command Line Interface." This an application that you run on your local development machine. It takes arguments like any other command line application, and it produces project skeletons which we can use to quickly get going on a new website.
-=======
 
 Node.js is a development platform that runs Javascript outside of the web browser. This is noteworthy because there are not other major implementations of Javascript outside of the web browser.
 
@@ -29,15 +27,6 @@ The specific Javascript engine Node.js uses is called V8, and it is the engine t
 Node allows developers to create tiny Javascript applications called "modules", and then to string those modules together into larger and more complex applications. There are thousands of "Node modules", as they are known. Developers manage modules with a tool called [NPM](https://www.npmjs.com/) \(Node Package Manager\), which is installed when you install Node.js.
 
 We will use a variety of extra modules to add functionality to our website, and to do so we will use NPM. NPM is akin to `apt-get`, `homebrew`, or other tools you may have encountered working on Linux or Unix systems.  These package managers are programs that can reach out to repositories on the internet and pull down code for use in development.  Take a moment to explore [npmjs.org](https://npmjs.org), the web app that allows you to search the npm repository and read about the opensource JavaScript code that is available to you. Anyone who creates a valid package.json file for their code can submit it to the npm repository.
-
-## About Vue-CLI
-
-We will use the [Vue.js](https://vuejs.org) SPAF as the example platform for this entire book. That means examples will be given in the context of Vue.js, and we will be looking at a lot of Vue.js-specific techniques and tools. This will allow us to learn both more general concepts and pragmatic skills we can use in day-to-day work.
-
-In order to quickly get started on building a Vue.js application, we will use the [Vue-CLI](https://github.com/vuejs/vue-cli) to bootstrap our project skeletons \(we will talk more about that next week\). The "CLI" in "Vue-CLI" stands for "Command Line Interface." This an application that you run on your local development machine. It takes arguments like any other command line application, and it produces project skeletons which we can use to quickly get going on a new website.
->>>>>>> master
-
-Many SPAFs and other technologies include these kinds of command line interfaces, so it's good to get familiar with how it feels to use a tool like this to manage and work with our projects.
 
 ## About Webpack
 
