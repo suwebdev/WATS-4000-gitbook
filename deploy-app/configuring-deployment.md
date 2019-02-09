@@ -30,6 +30,17 @@ module.exports = {
 }
 ```
 
+The command to "delete\('eslint'\) is included as a convenience.  Linting is very helpful for detecting syntax errors, but sometimes the rules can be strict or seemingly arbitrary and if they are in place can break the build.  They are turned off here by the following command in the file above.
+
+```
+chainWebpack: config => {
+//turn off elint for webpack transpile
+config.module.rules.delete('eslint');
+},
+```
+
+If you remove that command or comment it out, you will turn linting on.  Feel free to experiment with this if you are interested.
+
 **aliases.config.js**
 
 The reference to the `./aliases.config.js` file means we need to add the file to our root as well.  This file provides the convenience of references files that are stored in the `src` directory with the `@` symbol.  For example following imports are equivalent:
@@ -59,12 +70,7 @@ for (const alias in aliases) {
   module.exports.jest['^' + alias + '/(.*)$'] =
     '<rootDir>/' + aliases[alias] + '/$1'
 }
-
 ```
 
-
-
-
-
-Once we have made those changes to the `config/index.js` file, we can run the commands to build and deploy the site.
+Once we have created these files we should be ready to build the project for deployment.
 
