@@ -99,7 +99,7 @@ These changes result in the following changes in the browser:
 ![](/assets/2-things.png)
 <br>After changes to the template
 
-Vue.js component templates can have any HTML in them. We can create whatever structures we need, and they can even include other component tags (as with the `src/App.vue` file, which uses the `Hello` component in its template). Any HTML that shows up between the `<template>` tags will be inserted into the app when this component is executed.
+Vue.js component templates can have any HTML in them. We can create whatever structures we need, and they can even include other component tags (as with the `src/App.vue` file, which uses the `HelloWorld` component in its template). Any HTML that shows up between the `<template>` tags will be inserted into the app when this component is executed.
 
 ### The Styles
 Inside each Vue.js component is also a style block, defined by the `<style>` tags. We can see in the screenshot above that the list items are not numbered and they are laid out horizontally. Let's replace the numbers and make them go vertical again. 
@@ -108,20 +108,17 @@ Here is the original code:
 
 ```
 <style scoped>
-h1, h2 {
-  font-weight: normal;
+h3 {
+  margin: 40px 0 0;
 }
-
 ul {
   list-style-type: none;
   padding: 0;
 }
-
 li {
   display: inline-block;
   margin: 0 10px;
 }
-
 a {
   color: #42b983;
 }
@@ -154,16 +151,16 @@ a {
 </style>
 ```
 
-There is nothing special about these styles, but it's interesting to note that if we inspect our styles in our developer tools, we can see how the styles are scoped to the specific component:
+There is nothing special about these styles, but it's interesting to note that if we inspect our styles in our developer tools, we can see how the styles are scoped to the specific component using the `data` attribute and attribute selectors to implement scoping :
 
-![Scoped styles in developer tools](/img/project-bootstrap3-scoped-styles.png)
+![](/assets/scoped-styles-inspect.png)
 <br>Viewing the scoped styles in developer tools
 
 By using the attribute selector these style definitions are sure to never apply to any other elements on the page. So if we write a style for `p` or `div` or `ul` it will only apply to those elements when they show up inside this specific component template.
 
 Here is what our page looks like after we make these style changes:
 
-![List after style changes](/img/project-bootstrap4-list.png)
+![](/assets/2-things-with-style.png)
 <br>The list after style changes
 
 These are not the most amazing styles, but hopefully they help bring how things work into focus.
