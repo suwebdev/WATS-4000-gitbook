@@ -179,26 +179,42 @@ export default {
 </script>
 ```
 
+This logic does not do too much except define the `props` function with an object that contains the `msg` property. The `props` object is what gets revealed to the template context for processing. 
+
+We can add a `name` property to this component using the `data` object.
+Any property of the `data` object is accessible as a variable inside the template. The `name` can be added to the  `HelloWorld` component template to create the content of the `<h3>` tag:
+
 ```
 <script>
 export default {
-  name: 'hello',
-  data () {
+  name: 'HelloWorld',
+  props: {
+    msg: String
+  },
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      name: 'Shawn'
     }
   }
 }
 </script>
 ```
-
-This logic does not do too much except define the `props` function with an object that contains the `msg` property. The `props` object is what gets revealed to the template context for processing. 
-
-We can add a `nam`e property to this componet
-Any property of the `data` object is accessible as a variable inside the template. The `msg` property is used in the `Hello` component template to create the content of the `<h1>` tag:
+Then add a header to the template.
 
 ```
-<h1>{{ msg }}</h1>
+<template>
+  <div class="hello">
+    <h1>{{ msg }}</h1>
+    <h2>2 Things that are difficult in JavaScript</h2>
+    <h3>{{ name }}</h3>
+    <ol>
+      <li>naming things</li>
+      <li>recursion</li>
+      <li>off-by-one errors</li>
+    </ol>
+  </div>
+</template>
+
 ```
 
 Notice how we use the double curly braces (`{{ variableName }}`)to output the value of a variable in a template. This is a common convention among templating languages, especially in JavaScript frameworks.
