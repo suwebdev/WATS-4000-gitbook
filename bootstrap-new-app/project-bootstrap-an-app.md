@@ -19,26 +19,20 @@ vue create test-project
 Answer the questions like we see in the screenshot below:
 
 ![](/assets/choose-the-default.png)
-
-![vue init results](/img/vue-init.png)
-<br>The results of the `vue init` command.
+<br>The results of the `vue create` command.
 
 Once the project skeleton is available, `cd` into the directory where your project was created.
 
-## Install Dependencies
-After creating the project skeleton, we still need to install the Node modules that the project depends upon. We do this with the command:
-
-```
-npm install
-```
-
+## Start the Dev Server
 Once the installation is complete, we can test the project by running:
 
 ```
-npm run dev
+npm run serve
 ```
 
-We should see the development server start up and a new tab should open in the default web browser with our project loaded.
+We should see the development server start up.  You can CMD (Mac)-click or CTRL (Windows)-click to open the browser.
+
+
 
 ![Default screen from webpack project template](/img/vue-default-web.png) 
 <br>Default screen from Webpack project template

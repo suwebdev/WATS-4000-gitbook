@@ -46,6 +46,7 @@ The import statement is how we can let modern JavaScript files know about other 
 We can see, based on the highlights in the image above, that the `HelloWorld` component is referenced in the template for the `App` component. The `<HelloWorld/>` line indicates where the content for the `HelloWorld` component should be shown. It can be difficult to imagine what this looks like when it is displayed to the user. This next screenshot should help.
 
 ![](/assets/helloworld-ss.png)
+
 <br>Vue.js App Components
 
 The image above shows the default page rendered when running the project skeleton. The logo and Welcome message are in the coded in the `App` component. The `HelloWorld` component is inserted inside of the `App` component. All of the links are encapuslated in the `HelloWorld` component.
