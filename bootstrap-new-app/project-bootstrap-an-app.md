@@ -305,6 +305,9 @@ Now that we've added that code to the template, we must update the script logic.
 <script>
 export default {
   name: 'hello',
+  props: {
+    msg: String
+  },
   data () {
     return {
       msg: 'This Data Has Been Altered',
@@ -328,7 +331,8 @@ We have also added another property called `methods` to our component definition
 
 Once we put this script in place, we can try our page in the browser and see the result:
 
-![Calculation Performed](/img/project-bootstrap7-calculate.png)
+![Add calculate and event listener](/assets/calculate-method.png)
+
 <br>Calculation performed
 
 We can see that the calculation has been successfully performed in the screenshot. We should be able to see no product when the page loads, and then have the product populated when we click the button. If all of this is working then we have successfully altered our first Vue.js project skeleton, and we are ready to move on to learn methods for debugging and deploying our apps.
