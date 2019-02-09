@@ -68,7 +68,7 @@ Please enjoy this self-check quiz to help you identify key concepts, points, and
     <question>
         <p>What command runs the development server for our projects?</p>
         <answer><code>npm server</code></answer>
-        <answer correct><code>npm run dev</code></answer>
+        <answer correct><code>npm run serve</code></answer>
         <answer><code>webpack serve</code></answer>
         <answer><code>npm run build</code></answer>
         <explanation>The <code>npm run dev</code> command runs the development server for our projects.</explanation>

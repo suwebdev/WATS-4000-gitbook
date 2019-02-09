@@ -32,23 +32,24 @@ Looking at this listing, we can see a `main.js` file and an `App.vue` file. The 
 
 When the `App` component is executed, it runs the code contained in `App.vue`. This code defines a `<template>` tag, a `<script>` tag, and a `<style>` tag. When working with Vue.js components, we keep our HTML, JavaScript, and CSS in one location. Our CSS is automatically scoped so it will only affect the specific component, which helps prevent issues of CSS overlapping between components. The logic that makes the component function is included between the `<script>` tags, and that logic is applied to the template defined in the `<template>` tag.
 
-![Code for App and Hello Components](/img/vue-app-component-code.png)
-<br>Code for App and Hello Components
+![Source code](/assets/hello-src.png)
+<br>Code for App and HelloWorld Components
 
-Inside the `components/` directory is the `hello.vue` file, which contains the `Hello` component. This component is referenced inside of the `App` component. As we can see in the illustration above, the `App` components lists the child components it's using in the `components` property of the `App` object. `Hello` is the only component listed. We can also see that in `App.vue` there is an import statement:
+Inside the `components/` directory is the `HelloWorld.vue` file, which contains the `HelloWorld` component. This component is referenced inside of the `App` component. As we can see in the illustration above, the `App` components lists the child components it's using in the `components` property of the `App` object. `Hello` is the only component listed. We can also see that in `App.vue` there is an import statement:
 
 ```js
-import Hello from './components/Hello'
+import Hello from './components/HelloWorld'
 ```
 
-The import statement is how we can let modern JavaScript files know about other files we are working with. Notice that this import statement gives a name to the object being imported (`Hello`), and it specifies the file that is to be imported (`./components/Hello`). The `.vue` extension on the file name is not needed in the import statement, although it is needed on the file itself. The import statement understands to fill in the extension.
+The import statement is how we can let modern JavaScript files know about other files we are working with. Notice that this import statement gives a name to the object being imported (`HelloWorld`), and it specifies the file that is to be imported (`./components/HelloWorld`). The `.vue` extension on the file name is not needed in the import statement, although it is needed on the file itself. The import statement understands to fill in the extension.
 
-We can see, based on the highlights in the image above, that the `Hello` component is referenced in the template for the `App` component. The `<hello></hello>` line indicates where the content for the `Hello` component should be shown. It can be difficult to imagine what this looks like when it is displayed to the user. This next screenshot should help.
+We can see, based on the highlights in the image above, that the `HelloWorld` component is referenced in the template for the `App` component. The `<HelloWorld/>` line indicates where the content for the `HelloWorld` component should be shown. It can be difficult to imagine what this looks like when it is displayed to the user. This next screenshot should help.
 
-![Vue.js App Components](/img/vue-app-component-web2.png)
+![Hello World](/assets/helloworld-ss.png)
+
 <br>Vue.js App Components
 
-The image above shows the default page rendered when running the project skeleton. The green area represents the part of the page taken over by the `App` component. The `Hello` component is inserted inside of the `App` component. The blue area represents the part of the page that is generated and controlled by the `Hello` component.
+The image above shows the default page rendered when running the project skeleton. The logo and Welcome message are in the coded in the `App` component. The `HelloWorld` component is inserted inside of the `App` component. All of the links are encapuslated in the `HelloWorld` component.
 
 ## Templates and Data (and Methods)
 
@@ -56,13 +57,17 @@ In each Vue.js Component, we will probably provide some HTML for a template. Wit
 
 ### Output Data Values
 
-In a Vue.js template, we can output data values using the "double curly brace" syntax. This is often called "mustache" templates (because curly braces look like sideways mustaches). Here is an example from the `Hello.vue` file:
+In a Vue.js template, we can output data values using the "double curly brace" syntax. This is often called "mustache" templates (because curly braces look like sideways mustaches). Here is an example from the `HelloWorld.vue` file:
 
 ```
 <h1>{{ msg }}</h1>
 ```
 
-This example will output the value of the `msg` property defined in the `data` function. Most components will define some properties in their `data` function. Managing data and binding data properly to template elements is key to using templates effectively.
+This example will output the value of the `msg` property defined in the `props` object. The `props` object allows a child component to receive data from its parent.  Notice that the `msg` attribute contains the message that is named in the `HelloWorld` `prop`.
+
+![Using props](/assets/using-props.png)
+
+We'll also see a `data` object can be used to create data within a component.  Most components will define some properties in their `data` function. Managing data and binding data properly to template elements is key to using templates effectively.
 
 ### Directives
 

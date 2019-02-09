@@ -3,71 +3,76 @@
 To practice with making an application using the Vue-CLI tool, let's bootstrap an app that we can work with in sections 5 (Debugging the App) and 6 (Deploying the App) to practice working with the project skeletons we can create.
 
 ## Check for Vue-CLI
-If we have Vue-CLI installed properly, then we can run the command `vue --version` from anywhere on our command line and see the version of the Vue-CLI that we have installed. We should see a number above `2.8`. If we see an error (something about the `vue` command not existing), then we should install Vue-CLI by running this command:
+If we have Vue-CLI installed properly, then we can run the command `vue --version` from anywhere on our command line and see the version of the Vue-CLI that we have installed. We should see a number at or above `3.4`. If we see an error (something about the `vue` command not existing), then we should install Vue-CLI by running this command:
 
 ```
-npm install -g vue-cli
+npm install -g @vue/cli
 ```
 
 ## Bootstrap the Application
 Once we have Vue-CLI properly installed, we can bootstrap our project skeleton. This will create all the files we need to get started writing our application. Create a new app using the `webpack` template:
 
 ```
-vue init webpack test-project
+vue create test-project
 ```
 
 Answer the questions like we see in the screenshot below:
 
-![vue init results](/img/vue-init.png)
-<br>The results of the `vue init` command.
+![Choose the default](/assets/choose-the-default.png)
+<br>The results of the `vue create` command.
 
 Once the project skeleton is available, `cd` into the directory where your project was created.
 
-## Install Dependencies
-After creating the project skeleton, we still need to install the Node modules that the project depends upon. We do this with the command:
-
-```
-npm install
-```
-
+## Start the Dev Server
 Once the installation is complete, we can test the project by running:
 
 ```
-npm run dev
+npm run serve
 ```
 
-We should see the development server start up and a new tab should open in the default web browser with our project loaded.
+We should see the development server start up.  You can CMD (Mac)-click or CTRL (Windows)-click to open the browser.
 
-![Default screen from webpack project template](/img/vue-default-web.png) 
+
+![Hello World](/assets/helloworld-ss.png)
 <br>Default screen from Webpack project template
 
 If we see a screen that looks like the one above, then we have successfully installed our dependencies and our project is up and running. Now that we have a working project, we can begin to explore some of the parts of the application and see how they work together. The next steps are meant to expose us to different aspects of the software, but rest assured that we will cover these concepts and techniques in more depth in future sections.
 
-## Modify Hello
-In the default application, there are two Components at play: `App` and `Hello`. In order to experiment with the application, we will modify the `Hello` component. Open the file `src/components/Hello.vue` and look at the parts. Each `.vue` file is broken into three main areas: The template, the scripts, and the styles. These are denoted by corresponding tags.
+## Modify HelloWorld
+In the default application, there are two Components at play: `App` and `HelloWorld`. In order to experiment with the application, we will modify the `HelloWorld` component. Open the file `src/components/HelloWorld.vue` and look at the parts. Each `.vue` file is broken into three main areas: The template, the scripts, and the styles. These are denoted by corresponding tags.
 
 ### The Template
-Let's modify the template code to reflect our own content. Here is the original template code from `src/components/Hello.vue`:
+Let's modify the template code to reflect our own content. Here is the original template code from `src/components/HelloWorld.vue`:
 
 ```html
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
+    <p>
+      For a guide and recipes on how to configure / customize this project,<br>
+      check out the
+      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
+    </p>
+    <h3>Installed CLI Plugins</h3>
     <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
+      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
+      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
     </ul>
-    <h2>Ecosystem</h2>
+    <h3>Essential Links</h3>
     <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
+      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
+      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
+      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
+      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
+      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
+    </ul>
+    <h3>Ecosystem</h3>
+    <ul>
+      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
+      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
+      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
+      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
   </div>
 </template>
@@ -91,10 +96,10 @@ We can see from the page in the browser that this code is creating most of the c
 
 These changes result in the following changes in the browser:
 
-![After changes to template](/img/project-bootstrap2.png)
+![Add a list](/assets/2-things.png)
 <br>After changes to the template
 
-Vue.js component templates can have any HTML in them. We can create whatever structures we need, and they can even include other component tags (as with the `src/App.vue` file, which uses the `Hello` component in its template). Any HTML that shows up between the `<template>` tags will be inserted into the app when this component is executed.
+Vue.js component templates can have any HTML in them. We can create whatever structures we need, and they can even include other component tags (as with the `src/App.vue` file, which uses the `HelloWorld` component in its template). Any HTML that shows up between the `<template>` tags will be inserted into the app when this component is executed.
 
 ### The Styles
 Inside each Vue.js component is also a style block, defined by the `<style>` tags. We can see in the screenshot above that the list items are not numbered and they are laid out horizontally. Let's replace the numbers and make them go vertical again. 
@@ -103,20 +108,17 @@ Here is the original code:
 
 ```
 <style scoped>
-h1, h2 {
-  font-weight: normal;
+h3 {
+  margin: 40px 0 0;
 }
-
 ul {
   list-style-type: none;
   padding: 0;
 }
-
 li {
   display: inline-block;
   margin: 0 10px;
 }
-
 a {
   color: #42b983;
 }
@@ -149,53 +151,87 @@ a {
 </style>
 ```
 
-There is nothing special about these styles, but it's interesting to note that if we inspect our styles in our developer tools, we can see how the styles are scoped to the specific component:
+There is nothing special about these styles, but it's interesting to note that if we inspect our styles in our developer tools, we can see how the styles are scoped to the specific component using the `data` attribute and attribute selectors to implement scoping :
 
-![Scoped styles in developer tools](/img/project-bootstrap3-scoped-styles.png)
+![Scoped styles in inspector](/assets/scoped-styles-inspect.png)
 <br>Viewing the scoped styles in developer tools
 
 By using the attribute selector these style definitions are sure to never apply to any other elements on the page. So if we write a style for `p` or `div` or `ul` it will only apply to those elements when they show up inside this specific component template.
 
 Here is what our page looks like after we make these style changes:
 
-![List after style changes](/img/project-bootstrap4-list.png)
+![Style the list](/assets/2-things-with-style.png)
 <br>The list after style changes
 
 These are not the most amazing styles, but hopefully they help bring how things work into focus.
 
 ### The Logic
-The last part of the component that we have to explore is the logic itself. For the most part, this logic is pretty simple when it is generated in the project skeleton. The script tags in the default `Hello` component contain the following code:
+The last part of the component that we have to explore is the logic itself. For the most part, this logic is pretty simple when it is generated in the project skeleton. The script tags in the default `HelloWorld` component contain the following code:
 
 ```
 <script>
 export default {
-  name: 'hello',
-  data () {
+  name: 'HelloWorld',
+  props: {
+    msg: String
+  }
+}
+</script>
+```
+#### props
+This logic does not do too much except define the `props` function with an object that contains the `msg` property. The `props` object is what gets revealed to the template context for processing. 
+
+#### data
+We can add a `name` property to this component using the `data` function.  The data function must return an object which can contain properties (key:value pairs).
+Any property of the `data` object is accessible as a variable inside the template. The `name` property can be added to the  `HelloWorld` component template to create the content of the `<h3>` tag:
+
+```
+<script>
+export default {
+  name: 'HelloWorld',
+  props: {
+    msg: String
+  },
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      name: 'Shawn'
     }
   }
 }
 </script>
 ```
-
-This logic does not do too much except define the `data` function with an object that contains the `msg` property. The `data` object is what gets revealed to the template context for processing. Any property of the `data` object is accessible as a variable inside the template. The `msg` property is used in the `Hello` component template to create the content of the `<h1>` tag:
+Then add an `<h3>` header to the template.
 
 ```
-<h1>{{ msg }}</h1>
+<template>
+  <div class="hello">
+    <h1>{{ msg }}</h1>
+    <h2>2 Things that are difficult in JavaScript</h2>
+    <h3>{{ name }}</h3>
+    <ol>
+      <li>naming things</li>
+      <li>recursion</li>
+      <li>off-by-one errors</li>
+    </ol>
+  </div>
+</template>
+
 ```
 
 Notice how we use the double curly braces (`{{ variableName }}`)to output the value of a variable in a template. This is a common convention among templating languages, especially in JavaScript frameworks.
 
-We can change the message of that tag by altering the definition of the `msg` property in the script:
+We can change the name  by altering the definition of the `name` property in the script.  Replace `<put your name here>` with your own name.
 
 ```
 <script>
 export default {
   name: 'hello',
+  props: {
+    msg: String
+  },
   data () {
     return {
-      msg: 'This Data Has Been Altered'
+      name: '<put your name here>'
     }
   }
 }
@@ -204,7 +240,7 @@ export default {
 
 Once we have made that change to the data being piped into our application, we can see the change in the browser:
 
-![Altered H1 content](/img/project-bootstrap4-h1.png)
+![Your name rendered in template](/assets/data-name.png)
 <br>Altered H1 content
 
 We can even add additional data to the object and then refer to those variables in our template. First, we update the script:
@@ -213,9 +249,12 @@ We can even add additional data to the object and then refer to those variables 
 <script>
 export default {
   name: 'hello',
+  props: {
+    msg: String
+  },
   data () {
     return {
-      msg: 'This Data Has Been Altered',
+      name: 'Becky',
       num1: 42,
       num2: 78
     }
@@ -224,7 +263,7 @@ export default {
 </script>
 ```
 
-Then we update the template:
+Then we update the template by asking about multiplying 2 numbers:
 
 ```
 <template>
@@ -232,18 +271,19 @@ Then we update the template:
   <h1>{{ msg }}</h1>
   <p>What is {{ num1 }} times {{ num2 }}?</p>
   <h2>2 Things that are difficult in JavaScript</h2>
-    <ol>
-      <li>naming things</li>
-      <li>recursion</li>
-      <li>off-by-one errors</li>
-    </ol>
+  <h3>{{ name }}</h3>
+  <ol>
+    <li>naming things</li>
+    <li>recursion</li>
+    <li>off-by-one errors</li>
+  </ol>
   </div>
 </template>
 ```
 
 This results in the following display in the browser:
 
-![New variables in template](/img/project-bootstrap6-newvars.png)
+![New variables in template](/assets/multiply-2-nums.png)
 <br>New variable in the template
 
 Of course, now that we have those new variables in the template, we can try doing even more.
@@ -265,9 +305,12 @@ Now that we've added that code to the template, we must update the script logic.
 <script>
 export default {
   name: 'hello',
+  props: {
+    msg: String
+  },
   data () {
     return {
-      msg: 'This Data Has Been Altered',
+      name: 'Becky',
       num1: 42,
       num2: 78,
       product: null
@@ -288,7 +331,8 @@ We have also added another property called `methods` to our component definition
 
 Once we put this script in place, we can try our page in the browser and see the result:
 
-![Calculation Performed](/img/project-bootstrap7-calculate.png)
+![Add calculate and event listener](/assets/calculate-method.png)
+
 <br>Calculation performed
 
 We can see that the calculation has been successfully performed in the screenshot. We should be able to see no product when the page loads, and then have the product populated when we click the button. If all of this is working then we have successfully altered our first Vue.js project skeleton, and we are ready to move on to learn methods for debugging and deploying our apps.

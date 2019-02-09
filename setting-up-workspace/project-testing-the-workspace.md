@@ -6,8 +6,10 @@ This project uses the [WATS 4000: Up and Running](https://github.com/suwebdev/wa
 ## Fork and Clone
 You will need a Github account to fork the repository. Visit the [repository homepage](https://github.com/suwebdev/wats4000-up-and-running) and click the "fork" button. Once you have completed forking the repository, you can clone it to your local development environment. This will copy all the files from the repository to your workspace.
 
-## Install Dependencies
-In order to get this project to work, we need to install the dependencies. To do so, run the `npm install` command in the project repository. You should see output indicating that NPM has installed quite a few packages (this may take several minutes to complete).
+## Install Dependencies  
+
+The `package.json` file in the root of your project contains information for retrieving software from npmjs.org.  `dependencies` are the packages that will be used by your code and `devDependencies` are the packages that will be use to build your code into static files.  
+In order to get this project to work, we need to install the dependencies. To do so, run the `npm install` command in the project repository. You should see output in the form a a directory called `node_modules` indicating that NPM has installed quite a few packages (this may take several minutes to complete).  The `node_modules` directory can be quite large and there is no reason to save it on github.com, so we include it in a .gitignore file.  You may notice in your IDE, depending on how it is configured, that the `node_modules` directory is a lighter color indicating it won't be pushed to github.com.
 
 Once you have finished installing dependencies, take a look at the project itself.
 
@@ -18,17 +20,40 @@ Once you have finished installing dependencies, take a look at the project itsel
 
 You will notice several key parts of the project here. Let's take a quick trip through what we see in this list and identify some of the key parts of the application. We will go quickly through this for now because we will revisit almost all of these pieces as we work through more details of building applications.
 
-* `build` &ndash; This directory contains files that instruct Webpack how to build and compile the site.
-* `config` &ndash; This directory contains files that configure details about the project for use by Webpack and (possibly) other components.
-* `node_modules` &ndash; This is where all of the dependencies the site uses are stored during development. (Check it out; there are lots of these!)
+* `.git` &ndash; This is a hidden directory and it contains configuration information about your git project.  You can list the contents of the config file in .git to see if you are connected to a remote repository on github.
+* `docs` &ndash; This directory the static files that will be used to serve your application on gh-pages. This directory is built by using `vue CLI` commands and configuration information stored in `vue.config.js`.
+* `node_modules` &ndash; This is where all of the dependencies the site uses are stored during development. These are the files that are downloaded from npmjs.org when you run `npm install`(Check it out; there are lots of these!)
+* `public` &ndash; This directory contains the index.html and other static assets that are used to build your app. These assets can include files to be used as favicons.
 * `src` &ndash; This is where the custom code we write for this unique project goes. Look inside and you'll see the components that make this site work.
-* `static` &ndash; This is where files that are needed but which should not be manipulated by build tools other than copying them into the project's compiled code directory.
-* config files &ndash; The files that begin with dots contain configurations for how different dev tools should work. For example, `.gitignore` lists a bunch of file and directory names that should not be included in the Git repository (such as the `node_modules` directory, which we do NOT include in our version control). 
-* `index.html` &ndash; This is the base HTML container for our project.
-* `package.json` &ndash; This is what Node and `npm` use to track dependencies in our project. Inside this file is a list of all the dependencies we are using.
+* `babel.config.js` &ndash; This is a configuration file for the babel code transpiler. Babel is a dev dependency that is used to turn code written in `.vue` files into static HTML/JavaScript/CSS files.
+* `.editorconfig` &ndash; This is a hidden config file for the Visual Studio Code editor.  Depending on which editor you are using you may see a file with a similar purpose but named differently.
+* `.gitignore` &ndash; This is a hidden file that contains names of files and directory which will not be pushed to git.
+* `.postcssrc.js` &ndash; This is a hidden file that contains a module that will help build the CSS files.
+* `aliases.config.js` &ndash; This is a config file that tell Vue.js that `@` and `@src` are aliases for the `src`directory.  This is a coding convenience.
+* `LICENSE.md` &ndash; This project using and MIT license.
+* `package-lock.json` &ndash; This file is created, if it doesn't already exist, when you run `npm install`. It describes the exact code tree that was generated by the last call to `npm install`. 
+* `package.json` &ndash; This file contains the listings of npm dependencies and devDependencies.  When you `npm install <package>` a new package it gets recorded in this file.  The file also contains a `scripts` object that defines the command line scripts that can be run to build for development and production. 
+* `README.md` &ndash; This file contains a description of the project and instructions for working with it.
+* `vue.config.js` &ndash; This is a config file used to specify options for the build.  This is where you find the option to build to the `docs` directory and you can turn the linter off in here.  Any other build options can be added to this file.
 
-## Run the Dev Server
+## Run the Dev Server  
+
+The `npm run` command looks at the `scripts` object in package.json to find the commands to run.  If you look at the package.json script for this project you can see that it the commands map to a call to the `vue-cli-service` program.  You can also see that this program is installed locally when you run `npm install` because it is in the `devDependencies` object.
+
+![Project Folders](/img/package-json-script.png)
+
+We use the `serve` script to run our Dev Server. 
+
 As we work, we want to run the development server. When you do, you should see the app running. You can check it out in your web browser and test out the simple functionality.
+
+To start the dev server, go to the terminal and type:  
+
+`npm run serve`
+
+The output of this command indicates that we have a dev server running at `http://localhost:8080`.  This is an in memory server and there are no files written to disk.
+
+![Project Folders](/img/npm-run-serve.png)
+
 
 While we have the dev server running, we can open up our editor and modify some of the files. If we open `src/App.vue` we will see the template that includes the `<h1>` tag for the page. We can modify the contents of that tag and save the file to see the live reload capability of this development server. (We can also play with the CSS in this file if we wish.)
 
@@ -39,28 +64,22 @@ Once we done experimenting with the development server, we can quit the server u
 ## Build the Site
 As we mentioned earlier, the goal of using development environments is that we can work with source code that is more friendly and still deliver highly optimized code to our users. To get a feel for how this works, run the following command:
 
-`npm run build --report`
+`npm run build`
 
-This command builds and compiles all the code in our project and puts it in a directory called `dist` in the root of the project. The `--report` flag also produces a report about what parts of our project take up the most space for downloading/serving to our users.
+This command builds and compiles all the code in our project and puts it in a directory called `docs` in the root of the project.   
 
-![Webpack Build Report Web View](/img/build-report-web.png)
-<br>Web View of the Webpack Build Report
+![Webpack Build Report Web View](/img/build-report-terminal.png)
 
-Webpack provides us with a handy visual representation of the parts of our deployment package. We can see that the bulk of the package is actually the core dependencies we have in `node_modules`, and the tiny purple bar on the side represents the code we have in our custom app.
-
-Click around and check out this view, then go back to your terminal to read the text report.
-
-![Webpack Build Report in Terminal](/img/build-report-terminal.png)
 <br>Webpack Build Report in Terminal
 
 In the terminal view of the Webpack Build Report we can more easily see that webpack has combined files and organized them by "chunks". We can see the file size and the file name that has resulted from the processing of these files.
 
-If we look inside the `dist/` folder, which was created inside our repository by the build process, we can see that those files have been saved under `dist/static/` (as well as the other files that make up our site.
+If we look inside the `docs/` folder, which was created inside our repository by the build process, we can see that those files have been saved under `dist/static/` (as well as the other files that make up our site.
 
-![Files in dist folder](/img/dist-folder.png)
-<br>Files in the `dist/` Folder
+![Files in dist folder](/img/docs-folder.png)
+<br>Files in the `docs/` Folder
 
-These files are the results of combining many source files into just a few files for delivery to our users. This cuts down on the number of request a user makes to the server in order to download our application. We also see that the files have been "versioned" with the addition of "hashes" that represent a unique version of that file. These hashes are updated when the contents of the files that are being combined changes. Changing the names of these files when the contents change helps us avoid issues of browsers and networks caching files and serving users old code. (We never want to tell a user to "clear the cache" in their browser again!)
+These files are the results of combining many source files into just a few files for delivery to our users. There is also some transpiling taking place to turn a `.vue` file into HTML/CSS/JavaScript. This cuts down on the number of request a user makes to the server in order to download our application. We also see that the files have been "versioned" with the addition of "hashes" that represent a unique version of that file. These hashes are updated when the contents of the files that are being combined changes. Changing the names of these files when the contents change helps us avoid issues of browsers and networks caching files and serving users old code. (We never want to tell a user to "clear the cache" in their browser again!)
 
 ## Continue Exploring
 It's worthwhile to continue exploring the code to get a better understanding of what parts we're dealing with. Think of this as moving into a new neighborhood: There are already buildings and streets here, so we don't need to build everything from scratch. But we do need to find our ways and get comfortable in this new environment.

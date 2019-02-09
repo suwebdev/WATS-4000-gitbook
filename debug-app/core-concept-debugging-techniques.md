@@ -94,12 +94,12 @@ console.log(myText);
 ```
 That code snippet has a `debugger` command in the `for` loop within the `capitalizeEachWord()` function. This will freeze the execution of the code like this:
 
-![Debugger Stopped at Breakpoint](/images/debugger-stopped.png)
+![Stopped at debugger command](/assets/debugger-inspect.png)
 <br>**Debugger Stopped at Breakpoint**
 
 In the image above we can see that the debugger has stopped at the line with the `debugger` command. This has caused the JavaScript debugger in Chrome Devtools to show us the current values of the variables in use around this line of code. We can take a closer look at these values in the "scope" panel:
 
-![Debugger Scope Panel](/images/debugger-scope.png)
+![Scope Panel](/assets/scope-panel.png)
 <br>**Debugger Scope Panel**
 
 In the "scope" panel we can see the values of the variables available at the moment that the `debugger` line has been executed. We could alter these values using the JavaScript console and we can use the big "play" button at the top of the debugger window to continue executing code. Since our `debugger` command is in a `for` loop, it will pause the program each time it executes. In this way, we can watch the values change on each iteration of the `for` loop.

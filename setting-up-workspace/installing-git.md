@@ -10,14 +10,12 @@ If you have not yet set up Git and Github, follow the links below to get these s
 
 One of the easiest ways to install Git on your computer is to install the Github application. Here are links for the application on Windows and Mac:
 
-* [Github App for Windows](https://windows.github.com/)
+* [Git for Windows](https://gitforwindows.org/)
 * [Github App for Mac](https://mac.github.com/)
 
 It is recommended that if you are on a Windows or Mac machine and you have never set up Git before, you should start with the Github app. This app is useful to manage your code, and it also helps you set up your global Git preferences.
 
 If you don't want to install the Github application, you may install Git directly using one of the downloads from the official Git website: [http://git-scm.com/downloads](http://git-scm.com/downloads).
-
-_Please note:_ You will need to have Git properly configured on the command line to complete all of the steps in this book. You may use the Github App to manage your commits to your repository, but your automated deployment tool \(Grunt Build Control\) will use Git from the command line, so it will need your authentication setup properly between your local Git installation and Github.
 
 If you need to download Git directly and install it, you may wish to consult the ["Setting Up Git"](https://help.github.com/articles/set-up-git/) guide from Github.
 
