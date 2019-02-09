@@ -4,14 +4,18 @@ In order to practice debugging, it is useful to practice some debugging using th
 
 Once we have the project skeleton we want to work with, we can begin exploring some of the ways we can use our debugging tools. Run the development server so we can see our project in the browser, and then open up Vue-Devtools so we can inspect our application more closely.
 
+NOTE: You can only use the Vue-Devtools when running a project with a Dev Server.
+
 ## Watching Values
 
 In the Vue-Devtools main tab we should see the components of our application. When the page initially loads the `product` value has not yet been calculated. It has been initialized to `null`. We can see that in the Vue-Devtools:
+
 
 ![App values before product calculation](/img/project-debugging1-valuesbefore.png)
 <br>App values before product calculation
 
 If we keep the Vue-Devtools panel open, we can watch the value change when we click the `Calculate` button:
+
 
 ![App values after product calculation](/img/project-debugging2-valuesafter.png)
 <br>App values after product calculation
