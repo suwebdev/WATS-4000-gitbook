@@ -50,17 +50,17 @@ You can read the [vue-create docs](https://cli.vuejs.org/guide/creating-a-projec
 
 Once initiated, we will be presented with a choice as to whether to accept the default
 
-![](/assets/choose-the-default.png)
+![Choose the default](/assets/choose-the-default.png)
 
 ... or manually make some configuration choices. The image below show manually choosing the default. You use your up/down arrow keys to select in the command line.  If you choose the manual selection, you will be presented with a series of choices. The choices below will load babel and a linter.  
 
-![](/assets/manually-select-the-default.png)  
+![Manually select](/assets/manually-select-the-default.png)  
 
-![](/assets/choose-error-detection-linter.png)  
+![Select linter](/assets/choose-error-detection-linter.png)  
 
-![](/assets/saving-configs-to-separate-files.png)  
+![Choose separate files](/assets/saving-configs-to-separate-files.png)  
 
-![](/assets/not-saving-to-future-projects.png)
+![Don't save for future](/assets/not-saving-to-future-projects.png)
 
 For the work in this course you will usually be able to choose the default.  It's possible to modify these choices after the initialization through configuration and/or additional commands.
 
@@ -116,7 +116,7 @@ npm run serve
 
 The output of the serve command is show below.  A server using  the 8080 port is created and it show using localhost and the ip address on your network.  This ip address allows you to share your dev code with anyone running on your network.  This is a live server in that, if you view it in your browser, modifying the code will automatically update the browser.
 
-![](/assets/npm-run-serve.png)
+![Run dev server](/assets/npm-run-serve.png)
 
 We will want to keep that command handy, because that is how we will run the development server whenever we want to do work. The development server will run while we are working and will automatically refresh the page when we make changes to our files. It will also alert us to many issues that might come up in our code as we develop.  You might have noticed that the last part of the output created by the `vue create` command reminds you that you can change directory to your new project and run `npm run serve`.
 

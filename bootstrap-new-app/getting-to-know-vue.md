@@ -32,7 +32,7 @@ Looking at this listing, we can see a `main.js` file and an `App.vue` file. The 
 
 When the `App` component is executed, it runs the code contained in `App.vue`. This code defines a `<template>` tag, a `<script>` tag, and a `<style>` tag. When working with Vue.js components, we keep our HTML, JavaScript, and CSS in one location. Our CSS is automatically scoped so it will only affect the specific component, which helps prevent issues of CSS overlapping between components. The logic that makes the component function is included between the `<script>` tags, and that logic is applied to the template defined in the `<template>` tag.
 
-![](/assets/hello-src.png)
+![Source code](/assets/hello-src.png)
 <br>Code for App and HelloWorld Components
 
 Inside the `components/` directory is the `HelloWorld.vue` file, which contains the `HelloWorld` component. This component is referenced inside of the `App` component. As we can see in the illustration above, the `App` components lists the child components it's using in the `components` property of the `App` object. `Hello` is the only component listed. We can also see that in `App.vue` there is an import statement:
@@ -45,7 +45,7 @@ The import statement is how we can let modern JavaScript files know about other 
 
 We can see, based on the highlights in the image above, that the `HelloWorld` component is referenced in the template for the `App` component. The `<HelloWorld/>` line indicates where the content for the `HelloWorld` component should be shown. It can be difficult to imagine what this looks like when it is displayed to the user. This next screenshot should help.
 
-![](/assets/helloworld-ss.png)
+![Hello World](/assets/helloworld-ss.png)
 
 <br>Vue.js App Components
 
@@ -65,7 +65,7 @@ In a Vue.js template, we can output data values using the "double curly brace" s
 
 This example will output the value of the `msg` property defined in the `props` object. The `props` object allows a child component to receive data from its parent.  Notice that the `msg` attribute contains the message that is named in the `HelloWorld` `prop`.
 
-![](/assets/using-props.png)
+![Using props](/assets/using-props.png)
 
 We'll also see a `data` object can be used to create data within a component.  Most components will define some properties in their `data` function. Managing data and binding data properly to template elements is key to using templates effectively.
 

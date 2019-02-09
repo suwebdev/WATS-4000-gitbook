@@ -33,7 +33,7 @@ npm run serve
 We should see the development server start up.  You can CMD (Mac)-click or CTRL (Windows)-click to open the browser.
 
 
-![](/assets/helloworld-ss.png)
+![Hello World](/assets/helloworld-ss.png)
 <br>Default screen from Webpack project template
 
 If we see a screen that looks like the one above, then we have successfully installed our dependencies and our project is up and running. Now that we have a working project, we can begin to explore some of the parts of the application and see how they work together. The next steps are meant to expose us to different aspects of the software, but rest assured that we will cover these concepts and techniques in more depth in future sections.
@@ -153,7 +153,7 @@ a {
 
 There is nothing special about these styles, but it's interesting to note that if we inspect our styles in our developer tools, we can see how the styles are scoped to the specific component using the `data` attribute and attribute selectors to implement scoping :
 
-![](/assets/scoped-styles-inspect.png)
+![Scoped styles in inspector](/assets/scoped-styles-inspect.png)
 <br>Viewing the scoped styles in developer tools
 
 By using the attribute selector these style definitions are sure to never apply to any other elements on the page. So if we write a style for `p` or `div` or `ul` it will only apply to those elements when they show up inside this specific component template.
@@ -310,7 +310,7 @@ export default {
   },
   data () {
     return {
-      msg: 'This Data Has Been Altered',
+      name: 'Becky',
       num1: 42,
       num2: 78,
       product: null
