@@ -33,17 +33,17 @@ Looking at this listing, we can see a `main.js` file and an `App.vue` file. The 
 When the `App` component is executed, it runs the code contained in `App.vue`. This code defines a `<template>` tag, a `<script>` tag, and a `<style>` tag. When working with Vue.js components, we keep our HTML, JavaScript, and CSS in one location. Our CSS is automatically scoped so it will only affect the specific component, which helps prevent issues of CSS overlapping between components. The logic that makes the component function is included between the `<script>` tags, and that logic is applied to the template defined in the `<template>` tag.
 
 ![](/assets/hello-src.png)
-<br>Code for App and Hello Components
+<br>Code for App and HelloWorld Components
 
-Inside the `components/` directory is the `hello.vue` file, which contains the `Hello` component. This component is referenced inside of the `App` component. As we can see in the illustration above, the `App` components lists the child components it's using in the `components` property of the `App` object. `Hello` is the only component listed. We can also see that in `App.vue` there is an import statement:
+Inside the `components/` directory is the `HelloWorld.vue` file, which contains the `HelloWorld` component. This component is referenced inside of the `App` component. As we can see in the illustration above, the `App` components lists the child components it's using in the `components` property of the `App` object. `Hello` is the only component listed. We can also see that in `App.vue` there is an import statement:
 
 ```js
-import Hello from './components/Hello'
+import Hello from './components/HelloWorld'
 ```
 
-The import statement is how we can let modern JavaScript files know about other files we are working with. Notice that this import statement gives a name to the object being imported (`Hello`), and it specifies the file that is to be imported (`./components/Hello`). The `.vue` extension on the file name is not needed in the import statement, although it is needed on the file itself. The import statement understands to fill in the extension.
+The import statement is how we can let modern JavaScript files know about other files we are working with. Notice that this import statement gives a name to the object being imported (`HelloWorld`), and it specifies the file that is to be imported (`./components/HelloWorld`). The `.vue` extension on the file name is not needed in the import statement, although it is needed on the file itself. The import statement understands to fill in the extension.
 
-We can see, based on the highlights in the image above, that the `Hello` component is referenced in the template for the `App` component. The `<hello></hello>` line indicates where the content for the `Hello` component should be shown. It can be difficult to imagine what this looks like when it is displayed to the user. This next screenshot should help.
+We can see, based on the highlights in the image above, that the `HelloWorld` component is referenced in the template for the `App` component. The `<HelloWorld/>` line indicates where the content for the `HelloWorld` component should be shown. It can be difficult to imagine what this looks like when it is displayed to the user. This next screenshot should help.
 
 ![Vue.js App Components](/img/vue-app-component-web2.png)
 <br>Vue.js App Components
