@@ -38,8 +38,8 @@ We should see the development server start up.  You can CMD (Mac)-click or CTRL 
 
 If we see a screen that looks like the one above, then we have successfully installed our dependencies and our project is up and running. Now that we have a working project, we can begin to explore some of the parts of the application and see how they work together. The next steps are meant to expose us to different aspects of the software, but rest assured that we will cover these concepts and techniques in more depth in future sections.
 
-## Modify Hello
-In the default application, there are two Components at play: `App` and `Hello`. In order to experiment with the application, we will modify the `Hello` component. Open the file `src/components/Hello.vue` and look at the parts. Each `.vue` file is broken into three main areas: The template, the scripts, and the styles. These are denoted by corresponding tags.
+## Modify HelloWorld
+In the default application, there are two Components at play: `App` and `HelloWorld`. In order to experiment with the application, we will modify the `HelloWorld` component. Open the file `src/components/HelloWorld.vue` and look at the parts. Each `.vue` file is broken into three main areas: The template, the scripts, and the styles. These are denoted by corresponding tags.
 
 ### The Template
 Let's modify the template code to reflect our own content. Here is the original template code from `src/components/Hello.vue`:
