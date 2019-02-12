@@ -3,9 +3,11 @@
 It is very common when building applications to have the need to loop through sets of objects. In JavaScript frameworks, we often work with data that contains Arrays, which are iterable lists that we can process in a loop, or we want to loop through the properties of an Object in order to enumerate the data for the user. Looping in templates allows us to create consistent repetition of HTML structures in order to output better-formatted information to the user.
 
 ## Basic Syntax
+
 The loop that we have in Vue.js to work with is a `for` loop. It is invoked with the `v-for` directive. The `v-for` directive is applied much like the other directives we've looked at in this section. The directive can be applied like so:
 
 **data**
+
 ```html
 <script>
 export default {
@@ -23,6 +25,7 @@ export default {
 ```
 
 **template**
+
 ```html
 <ul>
   <li v-for="message in messages">{{ message }}</li>
@@ -30,6 +33,7 @@ export default {
 ```
 
 **rendered template**
+
 ```html
 <ul>
   <li>Hello, world!</li>
@@ -37,11 +41,13 @@ export default {
   <li>Question authority.</li>
 </ul>
 ```
+
 In this example, we can see that an Array called `messages` is being looped through. The loop is attached to the `<li>` tag, so that tag is duplicated. As with other directives, the loop would actually duplicate the tag and any content that is inside the tag, including other HTML elements. It is common practice to use the "singular in plural" naming pattern for loops, but we could use whatever names we wish.
 
 Sometimes it's beneficial to know what iteration of the loop we are on. We could modify this example slightly to demonstrate that:
 
 **data**
+
 ```html
 <script>
 export default {
@@ -59,6 +65,7 @@ export default {
 ```
 
 **template**
+
 ```html
 <ul>
   <li v-for="(message, index) in messages">{{ index }}: {{ message }}</li>
@@ -66,6 +73,7 @@ export default {
 ```
 
 **rendered template**
+
 ```html
 <ul>
   <li>1: Hello, world!</li>
@@ -79,6 +87,7 @@ By adding `index` as a value in the declaration of the loop, we can use that wit
 It's also possible to loop through Objects, too:
 
 **data**
+
 ```html
 <script>
 export default {
@@ -97,6 +106,7 @@ export default {
 ```
 
 **template**
+
 ```html
 <ul>
   <li v-for="(value, key) in profile">{{ key }}: {{ value }}</li>
@@ -104,6 +114,7 @@ export default {
 ```
 
 **rendered template**
+
 ```html
 <ul>
   <li>username: jdoe</li>
@@ -113,7 +124,7 @@ export default {
 </ul>
 ```
 
-In this example, rather than using the `item` and the `index` naming, we are using the `value` and `key` naming. This allows us to go through all of the properties in the Object, which are referenced using named keys, and output those along with the actual data stored in each property. This is often a better way to output the data in an Object. (Note: It is possible to write `v-for="value in profile"`, too, but that would only give us the property data to work with and not the property keys.)
+In this example, rather than using the `item` and the `index` naming, we are using the `value` and `key` naming. This allows us to go through all of the properties in the Object, which are referenced using named keys, and output those along with the actual data stored in each property. This is often a better way to output the data in an Object. \(Note: It is possible to write `v-for="value in profile"`, too, but that would only give us the property data to work with and not the property keys.\)
 
 These basic tools open the door to a lot of possibility. We can format and present data efficiently, consistently, and we can spend a great deal of attention on the details of forming our HTML structures.
 
@@ -122,6 +133,7 @@ These basic tools open the door to a lot of possibility. We can format and prese
 Of course, loops can be nested. This is often the case when we are presenting information from some sort of data API. A common example might be a system where we are showing search results with the tags that have been applied to them:
 
 **data**
+
 ```html
 <script>
 export default {
@@ -145,6 +157,7 @@ export default {
 ```
 
 **template**
+
 ```html
 <ul>
   <li v-for="result in results">
@@ -155,6 +168,7 @@ export default {
 ```
 
 **rendered template**
+
 ```html
 <ul>
   <li>
@@ -171,21 +185,29 @@ export default {
   </li>
 </ul>
 ```
-In this example we can see that the Array of results contains Objects. Each of those Objects has a property called `title` that is a String, and a property called `tags` that is an Array. In order to output all the results and all the tags for each result, we must use a nested loop. 
+
+In this example we can see that the Array of results contains Objects. Each of those Objects has a property called `title` that is a String, and a property called `tags` that is an Array. In order to output all the results and all the tags for each result, we must use a nested loop.
 
 We have attached the first loop to the `<li>` element so that it contains all the information about each result. In order to display the `result.tags` data we have attached another loop to the `<span>` elements because those are inline elements that will be easier to style into our desired presentation.
 
 This is just one example of the power of nested loops. Loops are very common in any template usage, so practicing and becoming capable with them is a crucial skill for developers to build.
 
+## Using key in Looping
 
+If data supplied in a `v-for` loop changes state, vue.js will use an "in-place patch" strategy to update it in the view.  This means that the order should match the order of the items in the view of the elements in the data.  This works well if the view output doesn't rely on child components but there is something you can do to ensure your view will match your data regardless of where it is in the view or how it got placed there. You can [supply a `key` attribute](https://vuejs.org/v2/guide/list.html) along side the `v-for` directive.
 
+You may even see a lint error if you don't supply a `key` with your `v-for` directive.  If your data has a unique key per item you can use that, but you can also use the index as a key. 
 
+For example in the template code provided above I can add an index variable to the list of variables returned by the for loop and then use it as the key.
 
-
-
-
-
-
+```html
+<ul>
+  <li v-for="(result,index) in results" :key="index">
+    {{ result.title }}<br>
+    Tags: <span v-for="tag in result.tags">{{ tag }}</span>
+  </li>
+</ul>
+```
 
 
 
