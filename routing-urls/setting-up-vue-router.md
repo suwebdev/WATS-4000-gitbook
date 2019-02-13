@@ -37,8 +37,8 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'Forms',
+      path: '',
+      name: 'forms',
       component: FormsPractice
     }
   ]
@@ -60,7 +60,7 @@ The `<router-view>` element is the location in the App template where the router
 
 ## Defining Routes
 
-We define routes in the `routes.js` file as part of the `routes` Array. This definition looks something like this:
+We define routes in the `routes.js` file as part of the `routes` Array. The convention is to use lowercase in paths and route names, and Uppercase the first letter of the component name.  Path This definition looks something like this:
 
 ```js
 import Vue from 'vue'
@@ -75,17 +75,17 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
+      name: 'home',
       component: Home
     },
     {
       path: '/login',
-      name: 'Login',
+      name: 'login',
       component: Login
     },
     {
       path: '/register',
-      name: 'Register',
+      name: 'register',
       component: Register
     }
 
@@ -118,7 +118,7 @@ const router = new VueRouter({
   routes: [
     { 
       path: '/user/:username', 
-      name: 'UserProfile',
+      name: 'userProfile',
       component: User 
     }
   ]
@@ -191,14 +191,14 @@ The route definition that would create some of these URLs would look like this:
       // UserProfile will be rendered inside User's <router-view>
       // when /user/:username/profile is matched
       path: 'profile',
-      name: 'UserProfile',
+      name: 'userProfile',
       component: UserProfile
     },
     {
       // UserPosts will be rendered inside User's <router-view>
       // when /user/:username/posts is matched
       path: 'posts',
-      name: 'UserPosts',
+      name: 'userPosts',
       component: UserPosts
     }
   ]

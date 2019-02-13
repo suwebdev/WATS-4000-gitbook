@@ -16,7 +16,9 @@ We create links to other routes by using the `<router-link>` tag in our template
     </li>
 </ul>
 ```
-When we use the `<router-link>` element to create links, we also use a `to` attribute instead of a typical `href` attribute. The `to` attribute accepts _either_ the `name` or the `path` property of the route. In the example above we have used the `name` property. But we could achieve the exact same result (with slightly less typing) using the `path` property:
+
+
+When we use the `<router-link>` element to create links, we also use a [`to` attribute](https://router.vuejs.org/api/#to) instead of a typical `href` attribute. The `to` attribute accepts _either_ the `name` or the `path` property of the route. In the example above we have used the `name` property. But we could achieve the exact same result (with slightly less typing) using the `path` property:
 
 ```html
 <ul class="nav">
