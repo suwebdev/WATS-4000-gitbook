@@ -11,18 +11,18 @@ To do this, we will need to edit four files: Three components and the router def
 
 Here are the Basic Requirements outlined in the project `README`:
 
-**In the `src/components/Survey.vue` file**
+**In the `src/views/Survey.vue` file**
 * Complete the survey form by filling in the TODO notes
 * Use `v-for` loops in the template to create options for the checkbox groups
 * Create a validation method to handle the rules outlined in the component comments
 * Use a `$router.push` statement to move the user to the Secret page
 
-**Create the `src/components/Secret.vue` file**
+**Create the `src/views/Secret.vue` file**
 * Create a basic component from scratch called `Secret`
 * The content of the `Secret` page should be something you come up with: A favorite tip about web development, a funny joke, a humorous image, etc.
 * Provide links back to the other two pages using `<router-link>` tags in the template
 
-**In the `src/router/index.js` file**
+**In the `src/router.js` file**
 * Import the Survey component properly
 * Import the Secret component properly
 * Add the Survey component at the `/survey` path
@@ -33,10 +33,10 @@ Please note: We will not be tackling these requirements exactly in order, but we
 ## Working the Project
 As we begin work we will need to have the following files open:
 
-* `src/components/Home.vue`
-* `src/components/Survey.vue`
-* `src/components/Secret.vue`
-* `src/router/index.js`
+* `src/views/Home.vue`
+* `src/views/Survey.vue`
+* `src/views/Secret.vue`
+* `src/router.js`
 
 We will move between these files to complete all of the work for this project.
 
@@ -46,8 +46,8 @@ First of all, we should add the Survey view to the routes definition so we can p
 ```js
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/Home'
-import Survey from '@/components/Survey'
+import Home from '@/views/Home'
+import Survey from '@/views/Survey'
 // TODO: Import the Secret component
 
 Vue.use(Router)
@@ -56,12 +56,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
+      name: 'home',
       component: Home
     },
     {
         path: '/survey',
-        name: 'Survey',
+        name: 'survey',
         component: Survey
     }
     // Add the Secret route definition
@@ -73,7 +73,7 @@ As we can see, there are still some `TODO` notes left in here, but we will handl
 ![Starting Survey View](/img/project9_survey1.png)
 <br>Starting Survey View
 
-The image above shows what the starting Survey view looks like. It can be accessed at `http://localhost:8080/#/Survey`. Right now we must manually type in that URL, but we will eventually add a link in the success message on the `Home` component. Notice that although we see some form fields here, we do not actually have choices for the questions. Let's finish out the form in the `Survey` component so we can see the completed page.
+The image above shows what the starting Survey view looks like. It can be accessed at `http://localhost:8080/#/survey`. Right now we must manually type in that URL, but we will eventually add a link in the success message on the `Home` component. Notice that although we see some form fields here, we do not actually have choices for the questions. Let's finish out the form in the `Survey` component so we can see the completed page.
 
 ### Creating the Form in `Survey.vue`
 This form is partially there for us. We have to add the `v-on` directive to the `<form>` tag so we can properly handle the `submit` event. We will also need to use the `.prevent` modifier, just like we did with the sign up form on the `Home` component.
@@ -157,7 +157,7 @@ Now we can see our completed form in action:
 We have all of our choices available and everything should be all connected in the template. Let's take a moment to add that link on the `Home` component to get users to this view.
 
 ### Adding the Link to the Survey from the Home View
-Adding the link for a user to click is very easy. Since we have used name routes, we can reference the name of the route. We only need to open the `src/components/Home.vue` file and add a single `<router-link>` tag inside the success message:
+Adding the link for a user to click is very easy. Since we have used name routes, we can reference the name of the route. We only need to open the `src/views/Home.vue` file and add a single `<router-link>` tag inside the success message:
 
 ```html
 <p>Please take our new member survey. <router-link to="/survey">Click here</router-link></p>
@@ -170,7 +170,7 @@ Once we have this, we can return to the home of our project (`http://localhost:8
 ### Creating the Secret View
 The next thing we need to do is create a brand new component to run the Secret view. This is a view that should convey some helpful tip about web development (or, really, you can put anything you want on this page). 
 
-To begin, create a new file in `src/components/` called `Secret.vue`. We can use the boilerplate component code included earlier in the Routing and URLs section to start us off:
+To begin, create a new file in `src/views/` called `Secret.vue`. We can use the boilerplate component code included earlier in the Routing and URLs section to start us off:
 
 ```html
 <template>
@@ -228,7 +228,7 @@ methods: {
         (this.q4 != '') &&
         (this.q5 != '')) {
       // Form is valid
-      this.$router.push('Secret');
+      this.$router.push('secret');
     } else {
       this.showError = true;
     }
@@ -236,7 +236,7 @@ methods: {
 }
 ```
 
-When the form is valid, the validation method will execute `this.$router.push('Secret');`, which moves the user to the Secret view. This is the programmatic way of moving the user to different locations in the application (as opposed to just asking the user to click, like we did on the Home view).
+When the form is valid, the validation method will execute `this.$router.push('secret');`, which moves the user to the Secret view. This is the programmatic way of moving the user to different locations in the application (as opposed to just asking the user to click, like we did on the Home view).
 
 Now that we've added this code, we can test the Survey view and see that when we fill out the form successfully it moves us to the Secret view. Huzzah! We are done!
 
@@ -437,7 +437,7 @@ export default {
           (this.q4 != '') &&
           (this.q5 != '')) {
         // Form is valid
-        this.$router.push('Secret');
+        this.$router.push('secret');
       } else {
         this.showError = true;
       }
@@ -501,9 +501,9 @@ Full file contents:
 ```js
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/Home'
-import Survey from '@/components/Survey'
-import Secret from '@/components/Secret'
+import Home from '@/views/Home'
+import Survey from '@/views/Survey'
+import Secret from '@/views/Secret'
 
 Vue.use(Router)
 
@@ -511,17 +511,17 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
+      name: 'home',
       component: Home
     },
     {
         path: '/survey',
-        name: 'Survey',
+        name: 'survey',
         component: Survey
     },
     {
         path: '/secret',
-        name: 'Secret',
+        name: 'secret',
         component: Secret
     }
   ]
