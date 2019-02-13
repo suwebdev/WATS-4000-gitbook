@@ -31,7 +31,7 @@ Here are the Basic Requirements from the project's `README.md` file:
     * Define a `then` clause that sets the component's `results` value to the value of `response.data`
     * Define a `catch` clause that will add any error to the `errors` array in the component
 
-**`/src/components/NewComponent.vue`**
+**`/src/views/NewComponent.vue`**
 
 (Please do not actually name the new component `NewComponent.vue`. This name is only being used for reference here. Name the component according to whatever feature it provides.)
 
