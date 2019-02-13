@@ -1548,7 +1548,7 @@ Vue.config.productionTip = <span class="hljs-literal">false</span>
   components: { App }
 })
 </code></pre>
-<p>If we look at the file in <code>src/router/index.js</code> we can see the route definitions:</p>
+<p>If we look at the file in <code>src/router.js</code> we can see the route definitions:</p>
 <pre><code class="lang-js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
 <span class="hljs-keyword">import</span> Router <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue-router&apos;</span>
 <span class="hljs-keyword">import</span> FormsPractice <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/components/FormsPractice&apos;</span>
@@ -1558,8 +1558,8 @@ Vue.use(Router)
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Router({
   routes: [
     {
-      path: <span class="hljs-string">&apos;/&apos;</span>,
-      name: <span class="hljs-string">&apos;Forms&apos;</span>,
+      path: <span class="hljs-string">&apos;&apos;</span>,
+      name: <span class="hljs-string">&apos;forms&apos;</span>,
       component: FormsPractice
     }
   ]
@@ -1575,7 +1575,7 @@ Vue.use(Router)
 </code></pre>
 <p>The <code>&lt;router-view&gt;</code> element is the location in the App template where the <a href="../GLOSSARY.html#router" class="glossary-term" title="The component of an application that determines what view the user should see based on the URL they request.">router</a>&apos;s view will be injected into the application. It replaces the use of the component tag in the template like we saw used in the previous Vue.js projects in this book. This will inject whatever component we have defined in the routes into the HTML at that location. Of course, the next question is: How do we define routes?</p>
 <h2 id="defining-routes">Defining Routes</h2>
-<p>We define routes in the <code>routes/index.js</code> file as part of the <code>routes</code> Array. This definition looks something like this:</p>
+<p>We define routes in the <code>routes.js</code> file as part of the <code>routes</code> Array. The convention is to use lowercase in paths and route names, and Uppercase the first letter of the component name.  Path This definition looks something like this:</p>
 <pre><code class="lang-js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
 <span class="hljs-keyword">import</span> Router <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue-router&apos;</span>
 <span class="hljs-keyword">import</span> Home <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/components/Home&apos;</span>
@@ -1588,17 +1588,17 @@ Vue.use(Router)
   routes: [
     {
       path: <span class="hljs-string">&apos;/&apos;</span>,
-      name: <span class="hljs-string">&apos;Home&apos;</span>,
+      name: <span class="hljs-string">&apos;home&apos;</span>,
       component: Home
     },
     {
       path: <span class="hljs-string">&apos;/login&apos;</span>,
-      name: <span class="hljs-string">&apos;Login&apos;</span>,
+      name: <span class="hljs-string">&apos;login&apos;</span>,
       component: Login
     },
     {
       path: <span class="hljs-string">&apos;/register&apos;</span>,
-      name: <span class="hljs-string">&apos;Register&apos;</span>,
+      name: <span class="hljs-string">&apos;register&apos;</span>,
       component: Register
     }
 
@@ -1607,7 +1607,7 @@ Vue.use(Router)
 </code></pre>
 <p>In the example configuration above, we see three different route objects defined: <code>Home</code>, <code>Login</code>, and <code>Register</code>. These three route objects have the same set of properties: <code>path</code>, <code>name</code>, and <code>component</code>. These properties are commonly used, and often the routing for our apps need not get any more complex. Let&apos;s take a look at what these properties mean.</p>
 <p>The <code>path</code> property is the desired URL for the route. These URLs should begin with a forward slash (<code>/</code>), and they  can include any URL safe characters. This the URL the user will see in their browser&apos;s location bar, and it should make sense based on the content of the view.</p>
-<p>The <code>name</code> property is a unique name for this route in the Vue.js application. The name can be used to reference the route in templates, so instead of linking to <code>/some-view-location</code> we can link to <code>ViewName</code>. The advantage here is that we can alter the URLs used in the app by modifying the <code>routes/index.js</code> file without modifying every template where we link to those routes. This is a very helpful feature of <code>vue-router</code> and is a common feature among URL routing systems in various frameworks. (We will look more at building navigational linkage in our templates later.)</p>
+<p>The <code>name</code> property is a unique name for this route in the Vue.js application. The name can be used to reference the route in templates, so instead of linking to <code>/some-view-location</code> we can link to <code>ViewName</code>. The advantage here is that we can alter the URLs used in the app by modifying the <code>routes.js</code> file without modifying every template where we link to those routes. This is a very helpful feature of <code>vue-router</code> and is a common feature among URL routing systems in various frameworks. (We will look more at building navigational linkage in our templates later.)</p>
 <p>Finally, the <code>component</code> property indicates which component should be injected into the <code>&lt;router-view&gt;</code> element in the application template. This component might utilize several other components as part of its template, and there are even ways to get more complex with loading multiple components in each route, but for most cases this feature works perfectly as it is.</p>
 <p>In addition to these fundamentals of route definition, there are a few other more advanced features we often need to use in our route definition.</p>
 <h3 id="dynamic-urls">Dynamic URLs</h3>
@@ -1619,7 +1619,7 @@ Vue.use(Router)
   routes: [
     { 
       path: <span class="hljs-string">&apos;/user/:username&apos;</span>, 
-      name: <span class="hljs-string">&apos;UserProfile&apos;</span>,
+      name: <span class="hljs-string">&apos;userProfile&apos;</span>,
       component: User 
     }
   ]
@@ -1649,7 +1649,7 @@ Vue.use(Router)
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 </code></pre>
 <p>In this example we can see that we are using the <code>$route.params</code> object in both the component template and logic. In the template, we can directly reference <code>$route.params</code> to use in creating the interface. In the component logic, we can refer to the route parameters in the same way we refer to other properties defined as part of the component&apos;s <code>data</code> object: <code>this.$route.params</code>. Any value we assign in the URL of the route definition will be revealed as a property in <code>this.$route.params</code>.</p>
-<p>In the example above, we can see that there is a computed value called <code>welcome</code> that is being generated. This <code>welcome</code> value uses <code>this.salutation</code> and <code>this.$route.params.username</code> to create a welcome message that is interpolated into our template. If the URL is changed, the page will properly reflect the change in the <code>this.$route.params.username</code> value. </p>
+<p>In the example above, we can see that there is a computed value called <code>welcome</code> that is being generated. This <code>welcome</code> value uses <code>this.salutation</code> and <code>this.$route.params.username</code> to create a welcome message that is interpolated into our template. If the URL is changed, the page will properly reflect the change in the <code>this.$route.params.username</code> value.</p>
 <p><strong>Note:</strong> If we are using more complex components (as we do later in this book) that define a <code>created</code> function or do other initialization work in the component, we may need to re-initialize the component when the <code>$route.params</code> object is changed. More information about making that happen can be found on <a href="https://router.vuejs.org/en/essentials/dynamic-matching.html" target="_blank">the Dynamic Matching documentation</a> as part of the Vue <a href="../GLOSSARY.html#router" class="glossary-term" title="The component of an application that determines what view the user should see based on the URL they request.">Router</a> docs.</p>
 <p>We could also add multiple values to a route definition. Here is a helpful table showing how route parameters get used in various URLs:</p>
 <table>
@@ -1703,20 +1703,20 @@ Vue.use(Router)
       <span class="hljs-comment">// UserProfile will be rendered inside User&apos;s &lt;router-view&gt;</span>
       <span class="hljs-comment">// when /user/:username/profile is matched</span>
       path: <span class="hljs-string">&apos;profile&apos;</span>,
-      name: <span class="hljs-string">&apos;UserProfile&apos;</span>,
+      name: <span class="hljs-string">&apos;userProfile&apos;</span>,
       component: UserProfile
     },
     {
       <span class="hljs-comment">// UserPosts will be rendered inside User&apos;s &lt;router-view&gt;</span>
       <span class="hljs-comment">// when /user/:username/posts is matched</span>
       path: <span class="hljs-string">&apos;posts&apos;</span>,
-      name: <span class="hljs-string">&apos;UserPosts&apos;</span>,
+      name: <span class="hljs-string">&apos;userPosts&apos;</span>,
       component: UserPosts
     }
   ]
 }
 </code></pre>
-<p>In this case, we have a general <code>/user/:username</code> URL that loads the <code>User</code> component. The <code>User</code> component will inject an appropriate <em>nested</em> route according to the <code>path</code> values we have defined. We define nested routes using the <code>children</code> property on a route definition. This property accepts an array of additional route definitions. </p>
+<p>In this case, we have a general <code>/user/:username</code> URL that loads the <code>User</code> component. The <code>User</code> component will inject an appropriate <em>nested</em> route according to the <code>path</code> values we have defined. We define nested routes using the <code>children</code> property on a route definition. This property accepts an array of additional route definitions.</p>
 <p>The <code>&lt;router-view&gt;</code> element in the <code>User</code> component template looks like this:</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;user&quot;</span>&gt;</span>
@@ -1771,7 +1771,7 @@ Vue.use(Router)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Setting Up vue-router","level":"9.3","depth":1,"next":{"title":"Creating New Locations in the App","level":"9.4","depth":1,"path":"routing-urls/creating-new-locations-in-the-app.md","ref":"routing-urls/creating-new-locations-in-the-app.md","articles":[]},"previous":{"title":"Core Concept: Routing and URLs","level":"9.2","depth":1,"path":"routing-urls/core-concept-routing-and-urls.md","ref":"routing-urls/core-concept-routing-and-urls.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","quiz","youtube","responsive-iframes"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"quiz":{"labels":{"check":"Check my answers","showExplanation":"Explain","showCorrect":"Show all","explanationHeader":"Explanation"},"text":{"noChosen":"Choose at least one answer","incomplete":"Some correct answers are missing"},"buttons":{"showCorrect":true,"showExplanation":true}},"responsive-iframes":{},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"by Shawn Rider":"http://shawnrider.com","CLI3 upgrade by Rebecca Peltz":"https://github.com/rebeccapeltz"}},"gitbook":"3.x.x"},"file":{"path":"routing-urls/setting-up-vue-router.md","mtime":"2019-02-06T18:43:01.140Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-12T22:59:01.582Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Setting Up vue-router","level":"9.3","depth":1,"next":{"title":"Creating New Locations in the App","level":"9.4","depth":1,"path":"routing-urls/creating-new-locations-in-the-app.md","ref":"routing-urls/creating-new-locations-in-the-app.md","articles":[]},"previous":{"title":"Core Concept: Routing and URLs","level":"9.2","depth":1,"path":"routing-urls/core-concept-routing-and-urls.md","ref":"routing-urls/core-concept-routing-and-urls.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","quiz","youtube","responsive-iframes"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"quiz":{"labels":{"check":"Check my answers","showExplanation":"Explain","showCorrect":"Show all","explanationHeader":"Explanation"},"text":{"noChosen":"Choose at least one answer","incomplete":"Some correct answers are missing"},"buttons":{"showCorrect":true,"showExplanation":true}},"responsive-iframes":{},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"by Shawn Rider":"http://shawnrider.com","CLI3 upgrade by Rebecca Peltz":"https://github.com/rebeccapeltz"}},"gitbook":"3.x.x"},"file":{"path":"routing-urls/setting-up-vue-router.md","mtime":"2019-02-13T19:59:50.078Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-13T20:00:11.594Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

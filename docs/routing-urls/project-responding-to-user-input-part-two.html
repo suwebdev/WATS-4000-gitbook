@@ -1536,20 +1536,20 @@
 <p>In this second part of the project, we will set up another form and also some new routes in our application. The new routes will allow us to experiment with using <code>vue-router</code> to move the user to different locations within our site. The goal is to allow the user to click to the new member survey page, and then to move the user to the secret page once they have completed the survey successfully.</p>
 <p>To do this, we will need to edit four files: Three components and the <a href="../GLOSSARY.html#router" class="glossary-term" title="The component of an application that determines what view the user should see based on the URL they request.">router</a> definitions. There are <code>TODO</code> notes in each of the files to help us find what we need to edit, and we should be able to use the examples that came previously in this section to complete the work.</p>
 <p>Here are the Basic Requirements outlined in the project <code>README</code>:</p>
-<p><strong>In the <code>src/components/Survey.vue</code> file</strong></p>
+<p><strong>In the <code>src/views/Survey.vue</code> file</strong></p>
 <ul>
 <li>Complete the survey form by filling in the TODO notes</li>
 <li>Use <code>v-for</code> loops in the template to create options for the checkbox groups</li>
 <li>Create a validation method to handle the rules outlined in the component comments</li>
 <li>Use a <code>$router.push</code> statement to move the user to the Secret page</li>
 </ul>
-<p><strong>Create the <code>src/components/Secret.vue</code> file</strong></p>
+<p><strong>Create the <code>src/views/Secret.vue</code> file</strong></p>
 <ul>
 <li>Create a basic component from scratch called <code>Secret</code></li>
 <li>The content of the <code>Secret</code> page should be something you come up with: A favorite tip about web development, a funny joke, a humorous image, etc.</li>
 <li>Provide links back to the other two pages using <code>&lt;router-link&gt;</code> tags in the template</li>
 </ul>
-<p><strong>In the <code>src/router/index.js</code> file</strong></p>
+<p><strong>In the <code>src/router.js</code> file</strong></p>
 <ul>
 <li>Import the Survey component properly</li>
 <li>Import the Secret component properly</li>
@@ -1560,18 +1560,18 @@
 <h2 id="working-the-project">Working the Project</h2>
 <p>As we begin work we will need to have the following files open:</p>
 <ul>
-<li><code>src/components/Home.vue</code></li>
-<li><code>src/components/Survey.vue</code></li>
-<li><code>src/components/Secret.vue</code></li>
-<li><code>src/router/index.js</code></li>
+<li><code>src/views/Home.vue</code></li>
+<li><code>src/views/Survey.vue</code></li>
+<li><code>src/views/Secret.vue</code></li>
+<li><code>src/router.js</code></li>
 </ul>
 <p>We will move between these files to complete all of the work for this project.</p>
 <h3 id="adding-the-survey-view-to-the-routes-array">Adding the Survey View to the Routes Array</h3>
 <p>First of all, we should add the Survey view to the routes definition so we can preview our work as we complete the form and logic in that component. This is done by editing the <code>src/router/index.js</code> file. We find <code>TODO</code> notes in this file helping us know where we need to edit. First, we must import the <code>Survey</code> component, and then we must set up a route definition. Here is what that looks like:</p>
 <pre><code class="lang-js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
 <span class="hljs-keyword">import</span> Router <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue-router&apos;</span>
-<span class="hljs-keyword">import</span> Home <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/components/Home&apos;</span>
-<span class="hljs-keyword">import</span> Survey <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/components/Survey&apos;</span>
+<span class="hljs-keyword">import</span> Home <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/views/Home&apos;</span>
+<span class="hljs-keyword">import</span> Survey <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/views/Survey&apos;</span>
 <span class="hljs-comment">// <span class="hljs-doctag">TODO:</span> Import the Secret component</span>
 
 Vue.use(Router)
@@ -1580,12 +1580,12 @@ Vue.use(Router)
   routes: [
     {
       path: <span class="hljs-string">&apos;/&apos;</span>,
-      name: <span class="hljs-string">&apos;Home&apos;</span>,
+      name: <span class="hljs-string">&apos;home&apos;</span>,
       component: Home
     },
     {
         path: <span class="hljs-string">&apos;/survey&apos;</span>,
-        name: <span class="hljs-string">&apos;Survey&apos;</span>,
+        name: <span class="hljs-string">&apos;survey&apos;</span>,
         component: Survey
     }
     <span class="hljs-comment">// Add the Secret route definition</span>
@@ -1595,7 +1595,7 @@ Vue.use(Router)
 <p>As we can see, there are still some <code>TODO</code> notes left in here, but we will handle those later. For now, we have added the <code>import</code> statement for the <code>Survey</code> component and the route definition. The route definition specifies the URL for the view, so we can load up that URL to preview our site:</p>
 <p><img src="../img/project9_survey1.png" alt="Starting Survey View">
 <br>Starting Survey View</p>
-<p>The image above shows what the starting Survey view looks like. It can be accessed at <code>http://localhost:8080/#/Survey</code>. Right now we must manually type in that URL, but we will eventually add a link in the success message on the <code>Home</code> component. Notice that although we see some form fields here, we do not actually have choices for the questions. Let&apos;s finish out the form in the <code>Survey</code> component so we can see the completed page.</p>
+<p>The image above shows what the starting Survey view looks like. It can be accessed at <code>http://localhost:8080/#/survey</code>. Right now we must manually type in that URL, but we will eventually add a link in the success message on the <code>Home</code> component. Notice that although we see some form fields here, we do not actually have choices for the questions. Let&apos;s finish out the form in the <code>Survey</code> component so we can see the completed page.</p>
 <h3 id="creating-the-form-in-surveyvue">Creating the Form in <code>Survey.vue</code></h3>
 <p>This form is partially there for us. We have to add the <code>v-on</code> <a href="../GLOSSARY.html#directive" class="glossary-term" title="A function used in a template to invoke some special behavior (e.g. setting an event listener, invoking a loop, or creating a conditional) used to process the template. Custom directives may be created by developers, and frameworks often provide a selection of default directives.">directive</a> to the <code>&lt;form&gt;</code> tag so we can properly handle the <code>submit</code> event. We will also need to use the <code>.prevent</code> <a href="../GLOSSARY.html#modifier" class="glossary-term" title="An extra command that can be appended to a directive to alter its behavior. For example, the .prevent modifier can be used with the v-on directive to &quot;prevent defaults&quot; on event handlers.">modifier</a>, just like we did with the sign up form on the <code>Home</code> component.</p>
 <p>We also need to set up an error message the same way we did on the <code>Home</code> component. We can see that the component <code>data</code> object already contains a <code>showError</code> value, so we can use the same method to make this error message appear and hide:</p>
@@ -1660,7 +1660,7 @@ Vue.use(Router)
 <br>Completed Survey Form</p>
 <p>We have all of our choices available and everything should be all connected in the template. Let&apos;s take a moment to add that link on the <code>Home</code> component to get users to this view.</p>
 <h3 id="adding-the-link-to-the-survey-from-the-home-view">Adding the Link to the Survey from the Home View</h3>
-<p>Adding the link for a user to click is very easy. Since we have used name routes, we can reference the name of the route. We only need to open the <code>src/components/Home.vue</code> file and add a single <code>&lt;router-link&gt;</code> tag inside the success message:</p>
+<p>Adding the link for a user to click is very easy. Since we have used name routes, we can reference the name of the route. We only need to open the <code>src/views/Home.vue</code> file and add a single <code>&lt;router-link&gt;</code> tag inside the success message:</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Please take our new member survey. <span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">&quot;/survey&quot;</span>&gt;</span>Click here<span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 </code></pre>
 <p>Once we have this, we can return to the home of our project (<code>http://localhost:8080/#/</code>) and fill in the sign up form. When we have successfully submitted valid data, we should see the link show up. Clicking the link should take us back to the Survey view. Here is what it looks like:</p>
@@ -1668,7 +1668,7 @@ Vue.use(Router)
 <br>Survey Link on Home View</p>
 <h3 id="creating-the-secret-view">Creating the Secret View</h3>
 <p>The next thing we need to do is create a brand new component to run the Secret view. This is a view that should convey some helpful tip about web development (or, really, you can put anything you want on this page). </p>
-<p>To begin, create a new file in <code>src/components/</code> called <code>Secret.vue</code>. We can use the boilerplate component code included earlier in the Routing and URLs section to start us off:</p>
+<p>To begin, create a new file in <code>src/views/</code> called <code>Secret.vue</code>. We can use the boilerplate component code included earlier in the Routing and URLs section to start us off:</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;component&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>{{ message }}<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
@@ -1717,14 +1717,14 @@ Vue.use(Router)
         (<span class="hljs-keyword">this</span>.q4 != <span class="hljs-string">&apos;&apos;</span>) &amp;&amp;
         (<span class="hljs-keyword">this</span>.q5 != <span class="hljs-string">&apos;&apos;</span>)) {
       <span class="hljs-comment">// Form is valid</span>
-      <span class="hljs-keyword">this</span>.$router.push(<span class="hljs-string">&apos;Secret&apos;</span>);
+      <span class="hljs-keyword">this</span>.$router.push(<span class="hljs-string">&apos;secret&apos;</span>);
     } <span class="hljs-keyword">else</span> {
       <span class="hljs-keyword">this</span>.showError = <span class="hljs-literal">true</span>;
     }
   }
 }
 </code></pre>
-<p>When the form is valid, the validation method will execute <code>this.$router.push(&apos;Secret&apos;);</code>, which moves the user to the Secret view. This is the programmatic way of moving the user to different locations in the application (as opposed to just asking the user to click, like we did on the Home view).</p>
+<p>When the form is valid, the validation method will execute <code>this.$router.push(&apos;secret&apos;);</code>, which moves the user to the Secret view. This is the programmatic way of moving the user to different locations in the application (as opposed to just asking the user to click, like we did on the Home view).</p>
 <p>Now that we&apos;ve added this code, we can test the Survey view and see that when we fill out the form successfully it moves us to the Secret view. Huzzah! We are done!</p>
 <h2 id="wrapping-up">Wrapping Up</h2>
 <p>Several files have been modified to complete this project. Here are the complete files so we can check our work against them.</p>
@@ -1917,7 +1917,7 @@ Vue.use(Router)
           (<span class="hljs-keyword">this</span>.q4 != <span class="hljs-string">&apos;&apos;</span>) &amp;&amp;
           (<span class="hljs-keyword">this</span>.q5 != <span class="hljs-string">&apos;&apos;</span>)) {
         <span class="hljs-comment">// Form is valid</span>
-        <span class="hljs-keyword">this</span>.$router.push(<span class="hljs-string">&apos;Secret&apos;</span>);
+        <span class="hljs-keyword">this</span>.$router.push(<span class="hljs-string">&apos;secret&apos;</span>);
       } <span class="hljs-keyword">else</span> {
         <span class="hljs-keyword">this</span>.showError = <span class="hljs-literal">true</span>;
       }
@@ -1974,9 +1974,9 @@ Vue.use(Router)
 <p>Full file contents:</p>
 <pre><code class="lang-js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
 <span class="hljs-keyword">import</span> Router <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue-router&apos;</span>
-<span class="hljs-keyword">import</span> Home <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/components/Home&apos;</span>
-<span class="hljs-keyword">import</span> Survey <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/components/Survey&apos;</span>
-<span class="hljs-keyword">import</span> Secret <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/components/Secret&apos;</span>
+<span class="hljs-keyword">import</span> Home <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/views/Home&apos;</span>
+<span class="hljs-keyword">import</span> Survey <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/views/Survey&apos;</span>
+<span class="hljs-keyword">import</span> Secret <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/views/Secret&apos;</span>
 
 Vue.use(Router)
 
@@ -1984,17 +1984,17 @@ Vue.use(Router)
   routes: [
     {
       path: <span class="hljs-string">&apos;/&apos;</span>,
-      name: <span class="hljs-string">&apos;Home&apos;</span>,
+      name: <span class="hljs-string">&apos;home&apos;</span>,
       component: Home
     },
     {
         path: <span class="hljs-string">&apos;/survey&apos;</span>,
-        name: <span class="hljs-string">&apos;Survey&apos;</span>,
+        name: <span class="hljs-string">&apos;survey&apos;</span>,
         component: Survey
     },
     {
         path: <span class="hljs-string">&apos;/secret&apos;</span>,
-        name: <span class="hljs-string">&apos;Secret&apos;</span>,
+        name: <span class="hljs-string">&apos;secret&apos;</span>,
         component: Secret
     }
   ]
@@ -2065,7 +2065,7 @@ Vue.use(Router)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Project: Responding to User Input Part Two","level":"9.7","depth":1,"next":{"title":"Introduction","level":"10.1","depth":1,"path":"using-api-data/README.md","ref":"using-api-data/README.md","articles":[]},"previous":{"title":"Quiz: Routing and URLs","level":"9.6","depth":1,"path":"routing-urls/quiz-routing-and-urls.md","ref":"routing-urls/quiz-routing-and-urls.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","quiz","youtube","responsive-iframes"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"quiz":{"labels":{"check":"Check my answers","showExplanation":"Explain","showCorrect":"Show all","explanationHeader":"Explanation"},"text":{"noChosen":"Choose at least one answer","incomplete":"Some correct answers are missing"},"buttons":{"showCorrect":true,"showExplanation":true}},"responsive-iframes":{},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"by Shawn Rider":"http://shawnrider.com","CLI3 upgrade by Rebecca Peltz":"https://github.com/rebeccapeltz"}},"gitbook":"3.x.x"},"file":{"path":"routing-urls/project-responding-to-user-input-part-two.md","mtime":"2019-02-06T18:43:01.139Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-12T22:59:01.582Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Project: Responding to User Input Part Two","level":"9.7","depth":1,"next":{"title":"Introduction","level":"10.1","depth":1,"path":"using-api-data/README.md","ref":"using-api-data/README.md","articles":[]},"previous":{"title":"Quiz: Routing and URLs","level":"9.6","depth":1,"path":"routing-urls/quiz-routing-and-urls.md","ref":"routing-urls/quiz-routing-and-urls.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","quiz","youtube","responsive-iframes"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"quiz":{"labels":{"check":"Check my answers","showExplanation":"Explain","showCorrect":"Show all","explanationHeader":"Explanation"},"text":{"noChosen":"Choose at least one answer","incomplete":"Some correct answers are missing"},"buttons":{"showCorrect":true,"showExplanation":true}},"responsive-iframes":{},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"by Shawn Rider":"http://shawnrider.com","CLI3 upgrade by Rebecca Peltz":"https://github.com/rebeccapeltz"}},"gitbook":"3.x.x"},"file":{"path":"routing-urls/project-responding-to-user-input-part-two.md","mtime":"2019-02-13T19:59:50.076Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-13T20:00:11.594Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

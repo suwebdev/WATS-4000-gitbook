@@ -8,9 +8,12 @@ In its entirety, this project asks us to create a couple of forms and move the u
 
 The Basic Requirements for this project are broken into requirements for each of the files. Stretch goals are provided that apply to all of the work in this project. We are encouraged to push this experiment as far as possible, so adding or altering form fields, adjusting validation logic, and providing more textured error messages are all fair game for stretching this project in this section. (But remember, to fully complete the project we must complete the second part in the Routing and URLs section.)
 
+## Introduce the "views" directory
+You'll notice that our Component files are located in a views directory.  This is because we will be using these components represent routable views and we'll be using a router in the second half of this project.  It is a convention in Vue.js to put Components referenced by the router into a `views` directory instead of the `componentents` directory. Not all components are routable and this will become more clear in future projects.
+
 Here are the Basic Requirements relevant to this first part of the project:
 
-**In the `src/components/Home.vue` file**
+**In the `src/views/Home.vue` file**
 * Create a form for the user to sign up to the site
 * Use `v-show` to toggle between the sign up form and the success text
 * Use the `submit` event to trigger the `validateForm` method on the component
@@ -23,7 +26,7 @@ To begin working on the file, it is necessary to install our dependencies (by ru
 ![Home view](/img/project8_starterHello.png)
 <br>Home view
 
-Work on this part of the project will happen in the `src/components/Home.vue` file. This file contains the `Home` component, which controls the first page of our project website. In the initial state, the view contains no form input fields and it shows the success message right away. We must fill in the details to make this a functioning sign up form. 
+Work on this part of the project will happen in the `src/views/Home.vue` file. This file contains the `Home` component, which controls the first page of our project website. In the initial state, the view contains no form input fields and it shows the success message right away. We must fill in the details to make this a functioning sign up form. 
 
 ### Show/Hide Form and Thank-You Message
 We begin with a set of data defined in the component's `data` object. One of those data values is `showForm`, which is set to `true` by default. The first `TODO` in the file tells us to modulate the display of the form container (`<div class="form-container">`). If we glance down a little further, we can see that we also need to modulate the display of the `<div class="success-message">` element, which contains the success message the user should see after successfully submitting the form. We can tackle both of these `TODOs` at once.
@@ -135,7 +138,7 @@ If all of the conditions pass, then the form is hidden by setting `showForm` to 
 Currently, the success message contains a `TODO` asking us to add a `<router-link>` tag to link to another page in our application. We will continue this project in the next seciton and add that tag. For now, though, we have finished this project. We should be able to fill in the form with valid data and see the success message. When we submit invalid data (omit a field, or submit mismatched passwords), then we will see the error message.
 
 ## Wrapping it Up
-Once we have made all of our changes to the `src/components/Home.vue` file, it should look something like this:
+Once we have made all of our changes to the `src/views/Home.vue` file, it should look something like this:
 
 ```html
 <template>
