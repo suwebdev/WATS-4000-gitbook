@@ -60,12 +60,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
+      name: 'home',
       component: Home
     },
     {
       path: '/newcomponent',
-      name: 'NewComponent',
+      name: 'newComponent',
       component: NewComponent
     }
   ]

@@ -9,10 +9,10 @@ We create links to other routes by using the `<router-link>` tag in our template
 ```html
 <ul class="nav">
     <li>
-        <router-link v-bind:to="{name: 'Home'}">Home</router-link>
+        <router-link v-bind:to="{name: 'home'}">Home</router-link>
     </li>
     <li>
-        <router-link v-bind:to="{name: 'NewComponent'}">New Component</router-link>
+        <router-link v-bind:to="{name: 'newComponent'}">New Component</router-link>
     </li>
 </ul>
 ```
@@ -44,7 +44,7 @@ When creating links, we often need to supply some information for the route para
 routes: [
     { 
       path: '/user/:username', 
-      name: 'UserProfile',
+      name: 'userProfile',
       component: User 
     }
 ]
@@ -52,7 +52,7 @@ routes: [
 In order to link to the `UserProfile` page, we need to provide a `username` parameter. We would write this link in the template like this:
 
 ```html
-<router-link v-bind:to="{ name: 'UserProfile', params: {username: 'jdoe'} }">Profile</router-link>
+<router-link v-bind:to="{ name: 'userProfile', params: {username: 'jdoe'} }">Profile</router-link>
 ```
 
 We must use the `v-bind` directive to supply a JavaScript object to the `to` attribute. The JS object we create has a property called `name`. We could alternatively use the `path` property if we wished to define this link with a `path` instead of a `name`. We also supply a `params` property that contains an object with all the parameters this route requires. In this case, that is just a `username` value, which we have set to `'jdoe'`. The result of this tag in our template would be a link that points to `/user/jdoe`. 
@@ -60,7 +60,7 @@ We must use the `v-bind` directive to supply a JavaScript object to the `to` att
 It's more likely that rather than providing the username as a static string, we would want to use some value known to the component to create this link. If we imagine that we have a `user` object defined in our component data, the `<router-link>` tag would look more like this:
 
 ```html
-<router-link v-bind:to="{ name: 'UserProfile', params: {username: user.username} }">Profile</router-link>
+<router-link v-bind:to="{ name: 'userProfile', params: {username: user.username} }">Profile</router-link>
 ```
 All that we've changed here is to refer to `user.username` instead of `'jdoe'`. This is a common way to use dynamic route parameters with the `<router-link>` tag.
 
@@ -92,7 +92,7 @@ Just like with the `<router-link>` tag, we can use `router.push()` with either a
   }
 </script>
 ```
-In this example, we can imagine that we have some form being presented to the user. When it is filled in with data the `validate` method would be executed. If `validated` is `true`, then the user would be moved to the `confirm` route.
+In this example, we can imagine that we have some form being presented to the user. When it is filled in with data the `validate` method would be executed. If `validated` is `true`, then the user would be moved to the `confirm` route.  Programatic routing allows us to execute some logic before moving the user to a new view.
 
 ```html
 <script>
