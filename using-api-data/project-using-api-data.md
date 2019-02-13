@@ -9,7 +9,7 @@ This project requires us to make an API call when the user clicks a search butto
 
 Here are the Basic Requirements from the project's `README.md` file:
 
-**`/src/components/Rhymesaurus.vue`**
+**`/src/views/Rhymesaurus.vue`**
 
 `<template>`
 
@@ -45,12 +45,12 @@ Here are the Basic Requirements from the project's `README.md` file:
     * Show all errors to the user
     * Show a message when no results have been found, so the user knows the system is working even though the data is not there
 
-**`/src/router/index.js`**
+**`/src/router.js`**
 
 * Add the new component to the import statements in the router definitions file
 * Add the new route to the router definitions list (use a sensible URL and name for it)
 
-**both `/src/compnents/Rhymesaurus.vue` and `/src/components/NewComponent.vue`**
+**both `/src/views/Rhymesaurus.vue` and `/src/views/NewComponent.vue`**
 
 * Add navigation elements to provide links between the two search pages
 * Use proper `router-link` tags to create links
