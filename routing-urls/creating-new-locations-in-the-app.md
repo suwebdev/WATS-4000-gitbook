@@ -4,7 +4,7 @@ Creating new locations in a Vue.js app is as simple as adding a new route defini
 In this section we will look at the basic steps involved in creating a new component and route within our Vue.js application. (There are plenty of reasons to create new components that don't necessarily map to a specific route in the application. The first part of these directions should generally work for that, too.)
 
 ## Defining a New Component
-The first step in creating a new component is to create a new `.vue` component in the `src/components/` directory. All of our components follow the same pattern, so we can use a little snippet of code as a way to bootstrap the new components. 
+The first step in creating a new component is to create a new `.vue` component in the either the `src/components/` directory or the `src/views` directory. If your component will be used as a router component then it should go in the `views` directory.  All of our components follow the same pattern, so we can use a little snippet of code as a way to bootstrap the new components. 
 
 Here is a basic Vue component skeleton. There is no logic here, and it is meant to be edited to perform the specific function we need. But this provides us with a basic template to fill up with our custom stuff.
 
@@ -33,7 +33,7 @@ Here is a basic Vue component skeleton. There is no logic here, and it is meant 
 </style>
 ```
 
-To get a new component going, we can simply copy the blank template above into a file and save it into the `src/components/` directory in our project. It is important to maintain our naming pattern and give the file a `.vue` extension so it can be properly understood by our build system and framework. 
+To get a new component going, we can simply copy the blank template above into a file and save it into the `src/components/` or `source/views` directory in our project. It is important to maintain our naming pattern and give the file a `.vue` extension so it can be properly understood by our build system and framework. 
 
 Once we have bootstrapped the basic component (even in this primitive form), we can define the route that will serve our new component.
 
@@ -49,8 +49,8 @@ To set up a new route that uses the component we just created, we can add a new 
 ```js
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/Home'
-import NewComponent from '@/components/NewComponent'
+import Home from '@/views/Home'
+import NewComponent from '@/views/NewComponent'
 
 Vue.use(Router)
 
@@ -73,7 +73,7 @@ Looking at this example, we can see that there is a set of import statements at 
 
 In the case of our custom code, we must actually indicate what file contains the module we wish to import. This file path uses a couple of shorthand references to reduce the characters we need to type. The path is a string, so it needs to be in quotes. Each path begins with the `@` symbol, which is a shortcut unique to the way a Vue.js project is created when using the Vue CLI. The `@` shortcut refers to the `/src/` directory, and it is defined in the Webpack configuration. It is the same as writing `/src/` at the beginning of the path. Finally, we have the path and filename. Filenames do not need to include the `.vue` extension because it is inferred.
 
-So the import for `import NewComponent from '@/components/NewComponent'` refers to the file found at `/src/components/NewComponent.vue` and will import the module from that file with the name `NewComponent`. We use the `NewComponent` name when referencing the component in the route definition.
+So the import for `import NewComponent from '@/views/NewComponent'` refers to the file found at `/src/views/NewComponent.vue` and will import the module from that file with the name `NewComponent`. We use the `NewComponent` name when referencing the component in the route definition.
 
 Once we have this route definition set up, we could visit the path in our development browser and we should see the new content displayed. The only thing left to do is to create links within our application to bring users to this new location.
 
