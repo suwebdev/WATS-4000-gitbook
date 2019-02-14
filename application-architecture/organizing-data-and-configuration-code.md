@@ -106,7 +106,7 @@ export default {
 }
 </script>
 ```
-Notice that in this example we don't need to specify anything beyond the endpoint path (`weather`). Our API call is much smaller than in previous examples. And if we used a different endpoint to get the forecast for a post, the API call would look something like this:
+Notice that in this example we don't need to specify anything beyond the endpoint path (`find`). Our API call is much smaller than in previous examples. And if we used a different endpoint to get the forecast for a post, the API call would look something like this:
 
 ```html
 <script>
