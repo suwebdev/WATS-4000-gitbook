@@ -199,7 +199,7 @@ As we can see from the diagram, information is put into a child component via "p
 import Item from '@/components/Item';
 
 export default {
-  name: 'FAQ',
+  name: 'Catalog',
   data () {
     return {
       catalog: [
