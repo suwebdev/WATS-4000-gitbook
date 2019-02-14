@@ -335,7 +335,7 @@ a {
 </style>
 ```
 
-The additional requirements ask us to create a new file in `/src/components/` for the new component and to add a new route to the `/src/router/index.js` file. These changes are up to us to work out according to our unique vision.
+The additional requirements ask us to create a new file in `/src/view/` for the new component and to add a new route to the `/src/router.js` file. These changes are up to us to work out according to our unique vision.
 
 ## Build and Deploy
 Once we've finished our work, we can build and deploy the project. This project has been configured to build to the `docs/` directory, so we can follow the same pattern we used before:
