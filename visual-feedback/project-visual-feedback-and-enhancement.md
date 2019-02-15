@@ -34,7 +34,26 @@ In order to complete this project, we will mainly be adding elements to enhance 
 * Add a global "error" message to display any errors from the API request (aside from "no results found")
 
 ## Working the Project
-The following guide offers a walkthrough of how to complete almost every aspect of the project. 
+The following guide offers a walkthrough of how to complete almost every aspect of the project.
+
+ ### Add Template for No Results
+ Before working on animation, test the code given too you.  What happens if you don't enter any parameters?
+ 
+  You will find that you get results even with out parameters.  Why is that and how can we fix this?  Look at the parameter for the "starts with and ends with": ``${this.startLetter}*${this.endLetter}``
+If the startLetter and endLetter are empty strings we still send an `*` which is the wildcard for all and Datamuse responds with a limited set of words from the end of its data set.  We can correct this with a ternary that tests for the case where both start and end letters are not specified. 
+```
+this.startLetter === '' && this.endLetter ==='' ? '' : `${this.startLetter}*${this.endLetter}`
+``` 
+Recall that the ternary is made up of a test expression and returns the value following the '?' if the expression evaluates to `true` and it returns the value following the `:` if the expression evaluates to `false`.  Now if both start and end are empty, and an empty string will be sent for `sp` parameter.
+
+We need to add some content to the template to test for the case when there are no results.   
+    
+ ```html
+ <div v-else-if="results && results.length === 0" class="no-results">
+    <h2>No Words Found</h2>
+    <p>Please adjust your search to find more words.</p>
+</div> 
+```
 
 ### Add `CubeSpinner` to Indicate Loading
 Like many of the tasks in this project, this one should be familiar based on the previous project. We will add the `import` statement for the `CubeSpinner` component, and then will add the component to the list of components. Once we have done that, we will add the `<spinner>` element to our template. We will use a regular `v-if` directive on the `<spinner>` element to determine whether or not to show the spinner. Here is what the basic implementation looks like:
