@@ -327,7 +327,7 @@ a {
 </style>
 ```
 
-### `src/components/Survey.vue`
+### `src/views/Survey.vue`
 Full file contents:
 
 ```html
@@ -495,7 +495,7 @@ export default {
 </style>
 ```
 
-### `router/index.js`
+### `router.js`
 Full file contents:
 
 ```js
