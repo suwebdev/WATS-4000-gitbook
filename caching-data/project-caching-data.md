@@ -84,7 +84,7 @@ The logic changes to add the `FavoriteCities` component look like this:
 
 ```js
 // ... previous imports ... //
-import FavoriteCities from '@/views/FavoriteCities';
+import FavoriteCities from '@/components/FavoriteCities';
 
 
 export default {
