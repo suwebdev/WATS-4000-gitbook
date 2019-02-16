@@ -21,7 +21,7 @@ which makes a set of common animations available for use with Vue.js transition
 components. We will also use a load spinner from Spinkit.
 
 ## Review the Requirements
-In order to complete this project, we will mainly be adding elements to enhance the messaging and visual presentation of the application. We must complete the following requirements, which will have us editing the `src/components/WordSearch.vue` file. (Each requirement corresponds to the `TODO` notes, so look for those.) Here are the basic requirements:
+In order to complete this project, we will mainly be adding elements to enhance the messaging and visual presentation of the application. We must complete the following requirements, which will have us editing the `src/views/WordSearch.vue` file. (Each requirement corresponds to the `TODO` notes, so look for those.) Here are the basic requirements:
 
 * Use the `showSpinner` value to modulate the display of the `CubeSpinner` component when appropriate
 * Add an animation to the items of the results list when a search is completed
