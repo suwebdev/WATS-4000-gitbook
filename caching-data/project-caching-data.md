@@ -1,7 +1,7 @@
 # Project: Caching Data
 This project uses the [Caching Data repository](https://github.com/suwebdev/wats4000-caching-data) as a starting point. Please fork and clone this repository to your preferred work environment.
 
-For this project, we will add some user information storage and caching to the weather application we refactored a couple sections ago. We willwork with a weather application that could have come out of that prior refactoring experience.
+For this project, we will add some user information storage and caching to the weather application we refactored a couple sections ago. We will work with a weather application that could have come out of that prior refactoring experience.
 
 The weather application has three major views: `CitySearch`, `CurrentWeather`,
 and `Forecast`. These three views use several child components to display all of
@@ -29,7 +29,7 @@ our goals.
 In order to successfully complete this project, we must fulfill the following requirements.
 
 * Sign up to [OpenWeatherMap.org](https://openweathermap.org/) and generate an API Key.
-* Paste your API Key (which will be used as the `APPID` parameter) into the appropriate locations in the `CitySearch.vue`, `CurrentWeather.vue`, and `Forecast.vue` files.
+* Paste your API Key (which will be used as the `APPID` parameter) into the `@/commons/api.js` for to support [axios  interceptor requests](https://github.com/axios/axios) in the `CitySearch.vue`, `CurrentWeather.vue`, and `Forecast.vue` files.
 
 **`main.js`**
 * Add the base configuration for `vue-ls`.
@@ -78,13 +78,13 @@ First, we have our import statement. This module has already been added to our p
 Now we can access `this.$ls` in any component we use in our application. 
 
 ### Adding the `FavoriteCities` Component
-In the `src/components/CitySearch.vue` file, we must add the `FavoriteCities` component as a child component. This requires us to import the component, then to define it in the `components` object, and finally to add a tag to our template where the component should be displayed.
+In the `src/views/CitySearch.vue` file, we must add the `FavoriteCities` component as a child component. This requires us to import the component, then to define it in the `components` object, and finally to add a tag to our template where the component should be displayed.
 
 The logic changes to add the `FavoriteCities` component look like this:
 
 ```js
 // ... previous imports ... //
-import FavoriteCities from '@/components/FavoriteCities';
+import FavoriteCities from '@/views/FavoriteCities';
 
 
 export default {
@@ -197,7 +197,7 @@ We should now be able to repeat queries in our console and see that a new query 
 The functionality of this page should be the same, with the only difference being the speed with which repeated searches are executed. Users will perceive our application as being much faster thanks to these caching changes.
 
 ### Cache `CurrentWeather` and `Forecast` API Requests
-We will make the same changes to cache the API requests in the `src/components/CurrentWeather.vue` and `src/components/Forecast.vue` files. In each case we must create `cacheLabel` and `cacheExpiry` values, and then we will use the same kind of conditional to check for the value in `localStorage` and perform the API request if it is not found.
+We will make the same changes to cache the API requests in the `src/views/CurrentWeather.vue` and `src/views/Forecast.vue` files. In each case we must create `cacheLabel` and `cacheExpiry` values, and then we will use the same kind of conditional to check for the value in `localStorage` and perform the API request if it is not found.
 
 Rather than repeating these same structures multiple times on the page, refer to the full file details below for more precise examples of what this process looks like in each file.
 
