@@ -125,6 +125,16 @@ Now we should be able to see our information updating on the screen and in our d
 ![Storing cities in localStorage](/img/project13-localstorage.gif)
 <br>Storing cities in localStorage
 
+We also need to get the cached `weather__favoriteCities` from local storage so that they can be handed off to the FavoriteCities component.  This can be done in the `created`function.  Add the following code to the created function. Always check to see that there is data in the cache before trying to get it. The cached data will be put into the `favorites` array which is handed off to the FavoriteCities props.
+
+```js
+if (this.$ls.get('favoriteCities')){
+  this.favorites = this.$ls.get('favoriteCities');
+}
+```
+
+
+
 ### Make Favorite Cities Removable
 Now that we have made it possible to save cities in both component data and localstorage, we should make it possible for our users to remove cities. Since we are syncing our data through the caching system using `localStorage`, we can remove cities in the `FavoriteCities` component, where it's easier to respond to the user's click action.
 
