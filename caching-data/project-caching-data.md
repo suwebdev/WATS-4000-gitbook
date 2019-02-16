@@ -212,6 +212,11 @@ We will make the same changes to cache the API requests in the `src/views/Curren
 
 Rather than repeating these same structures multiple times on the page, refer to the full file details below for more precise examples of what this process looks like in each file.
 
+## Clear Local Storage Cache during Development  
+It is useful during development to clear the cache and you can do this in Chrome dev tools by opening the inspector and clicking on the **Application** tab.  Then drill down on the **Local Storage** container under **Storage** in the left navigation section.  Right click on your server and select the Clear option.  When you refresh you'll see that all views dependent on cached data are cleared.
+
+![](/assets/clear-cache.gif)
+
 ## Wrapping Up
 Once we have made all of our changes, we have an app that is more functional and faster for users. Most people would agree that makes any app better. The following files have been changed:
 
