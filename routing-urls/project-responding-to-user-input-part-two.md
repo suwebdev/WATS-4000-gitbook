@@ -243,7 +243,7 @@ Now that we've added this code, we can test the Survey view and see that when we
 ## Wrapping Up
 Several files have been modified to complete this project. Here are the complete files so we can check our work against them.
 
-### `src/components/Home.vue`
+### `src/views/Home.vue`
 Full file contents:
 
 ```html
@@ -327,7 +327,7 @@ a {
 </style>
 ```
 
-### `src/components/Survey.vue`
+### `src/views/Survey.vue`
 Full file contents:
 
 ```html
@@ -470,7 +470,7 @@ a {
 
 ```
 
-### `src/components/Secret.vue`
+### `src/views/Secret.vue`
 Full file contents:
 
 ```html
@@ -495,7 +495,7 @@ export default {
 </style>
 ```
 
-### `router/index.js`
+### `router.js`
 Full file contents:
 
 ```js
