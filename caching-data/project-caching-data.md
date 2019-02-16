@@ -123,7 +123,8 @@ To save a city, we simply `push` the `city` object into the `this.favorites` arr
 Now we should be able to see our information updating on the screen and in our devtools. Open the "Application" tab in our devtools panel and select our `localhost` domain under `localStorage`. We should see all of the values updating in all the right places. 
 
 ![Storing cities in localStorage](/img/project13-localstorage.gif)
-<br>Storing cities in localStorage
+<br>Storing cities in localStorage  
+
 
 We also need to get the cached `weather__favoriteCities` from local storage so that they can be handed off to the FavoriteCities component.  This can be done in the `created`function.  Add the following code to the created function. Always check to see that there is data in the cache before trying to get it. The cached data will be put into the `favorites` array which is handed off to the FavoriteCities props.
 
