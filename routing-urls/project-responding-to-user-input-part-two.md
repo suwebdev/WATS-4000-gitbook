@@ -470,7 +470,7 @@ a {
 
 ```
 
-### `src/components/Secret.vue`
+### `src/views/Secret.vue`
 Full file contents:
 
 ```html
