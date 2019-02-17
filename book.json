@@ -1,6 +1,6 @@
 {
     "gitbook": "3.x.x",
-    "plugins": ["exercises", "quiz", "youtube", "responsive-iframes","downloadpdf"],
+    "plugins": ["exercises", "quiz", "youtube", "responsive-iframes"],
     "links": {
         "sidebar": {
             "by Shawn Rider": "http://shawnrider.com",
@@ -8,11 +8,6 @@
         }
     },
     "pluginsConfig": {
-        "downloadpdf": {
-            "base": "https://suwebdev.github.io/WATS-4000-gitbook/pdf",
-            "label": "Download PDF",
-            "multilingual": false
-          },
         "theme-default": {
             "showLevel": true
         },
