@@ -1,6 +1,6 @@
 {
     "gitbook": "3.x.x",
-    "plugins": ["exercises","quiz", "youtube", "responsive-iframes"],
+    "plugins": ["exercises", "quiz", "youtube", "responsive-iframes","downloadpdf"],
     "links": {
         "sidebar": {
             "by Shawn Rider": "http://shawnrider.com",
@@ -8,23 +8,28 @@
         }
     },
     "pluginsConfig": {
+        "downloadpdf": {
+            "base": "https://suwebdev.github.io/WATS-4000-gitbook/pdf",
+            "label": "Download PDF",
+            "multilingual": false
+          },
         "theme-default": {
             "showLevel": true
         },
         "quiz": {
             "labels": {
-                "check"             : "Check my answers",
-                "showExplanation"   : "Explain", 
-                "showCorrect"       : "Show all",   
-                "explanationHeader" : "Explanation"
+                "check": "Check my answers",
+                "showExplanation": "Explain",
+                "showCorrect": "Show all",
+                "explanationHeader": "Explanation"
             },
             "text": {
-                "noChosen"    : "Choose at least one answer",  
-                "incomplete"  : "Some correct answers are missing" 
+                "noChosen": "Choose at least one answer",
+                "incomplete": "Some correct answers are missing"
             },
             "buttons": {
-                "showCorrect"       : true, 
-                "showExplanation"   : true 
+                "showCorrect": true,
+                "showExplanation": true
             }
         }
     },
