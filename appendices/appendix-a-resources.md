@@ -22,6 +22,7 @@ This page lists additional resources for continuing our learning about web appli
 * [Vue.js: Building an Interface](https://www.lynda.com/JavaScript-tutorials/Vue-js-Building-Interface/609025-2.html) from Lynda.com
 * [Getting Started with Vue.js](https://www.pluralsight.com/courses/vuejs-getting-started) from Pluralsight
 * [Single Page Applications with Vue.js](https://www.pluralsight.com/courses/vue-js-single-page-applications) from Pluralsight
+* [Intro to Vue.js](https://www.vuemastery.com/) from Vue Mastery
 
 
 
