@@ -74,7 +74,7 @@ This command builds and compiles all the code in our project and puts it in a di
 
 In the terminal view of the Webpack Build Report we can more easily see that webpack has combined files and organized them by "chunks". We can see the file size and the file name that has resulted from the processing of these files.
 
-If we look inside the `docs/` folder, which was created inside our repository by the build process, we can see that those files have been saved under `dist/static/` (as well as the other files that make up our site.
+If we look inside the `docs/` folder, which was created inside our repository by the build process, we can see that those files have been saved under `assets/` (as well as the other files that make up our site).
 
 ![Files in dist folder](/img/docs-folder.png)
 <br>Files in the `docs/` Folder
