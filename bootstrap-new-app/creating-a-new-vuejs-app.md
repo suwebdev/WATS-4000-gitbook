@@ -106,8 +106,6 @@ Over the next several sections we will look at many parts of this project skelet
 
 The create process has run `npm install` for us and there is a node_modules directory created.  There are also `.git` directory which means we have a local git repo and a `.gitignore` file which contains directories and files to exclude from git.
 
-Run the following command to install all of the Node.js modules our site depends upon:
-
 Now that we have everything installed to run our project, we can test it out by running the development server with this command:
 
 ```
