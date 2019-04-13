@@ -1,0 +1,26 @@
+{
+  "name": "WATS-4000-gitbook",
+  "version": "1.0.0",
+  "description": "A reader for WATS 4000",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suwebdev/WATS-4000-gitbook.git"
+  },
+  "author": "Becky Peltz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/suwebdev/WATS-4000-gitbook/issues"
+  },
+  "devDependencies": {
+    "child_process": "^1.0.2",
+    "del": "^3.0.0",
+    "gulp": "^4.0.0",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-load-plugins": "^1.5.0"
+  },
+  "homepage": "https://github.com/suwebdev/WATS-4000-webdev#README"
+}
