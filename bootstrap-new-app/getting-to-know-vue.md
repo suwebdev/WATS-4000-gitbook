@@ -38,7 +38,7 @@ When the `App` component is executed, it runs the code contained in `App.vue`. T
 Inside the `components/` directory is the `HelloWorld.vue` file, which contains the `HelloWorld` component. This component is referenced inside of the `App` component. As we can see in the illustration above, the `App` components lists the child components it's using in the `components` property of the `App` object. `Hello` is the only component listed. We can also see that in `App.vue` there is an import statement:
 
 ```js
-import Hello from './components/HelloWorld'
+import HelloWorld from './components/HelloWorld'
 ```
 
 The import statement is how we can let modern JavaScript files know about other files we are working with. Notice that this import statement gives a name to the object being imported (`HelloWorld`), and it specifies the file that is to be imported (`./components/HelloWorld`). The `.vue` extension on the file name is not needed in the import statement, although it is needed on the file itself. The import statement understands to fill in the extension.
