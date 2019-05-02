@@ -41,7 +41,7 @@ As we begin work we will need to have the following files open:
 We will move between these files to complete all of the work for this project.
 
 ### Adding the Survey View to the Routes Array
-First of all, we should add the Survey view to the routes definition so we can preview our work as we complete the form and logic in that component. This is done by editing the `src/router/index.js` file. We find `TODO` notes in this file helping us know where we need to edit. First, we must import the `Survey` component, and then we must set up a route definition. Here is what that looks like:
+First of all, we should add the Survey view to the routes definition so we can preview our work as we complete the form and logic in that component. This is done by editing the `src/router.js` file. We find `TODO` notes in this file helping us know where we need to edit. First, we must import the `Survey` component, and then we must set up a route definition. Here is what that looks like:
 
 ```js
 import Vue from 'vue'

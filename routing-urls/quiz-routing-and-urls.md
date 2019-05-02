@@ -22,10 +22,10 @@ Please enjoy this self-check quiz to help you identify key concepts, points, and
     <question>
         <p>Where are the route definitions found in a standard Vue.js project created with the Vue CLI webpack template?</p>
         <answer><code>/src/routes.js</code></answer>
-        <answer correct><code>/src/router/index.js</code></answer>
+        <answer correct><code>/src/router.js</code></answer>
         <answer><code>/src/App.vue</code></answer>
         <answer><code>/router.js</code></answer>
-        <explanation>The <code>/src/router/index.js</code> file contains the route definitions.</explanation>
+        <explanation>The <code>/src/router.js</code> file contains the route definitions.</explanation>
     </question>
     <question multiple>
         <p>Which of the following properties of a route can be used with <code><router-link></code> or <code>router.push()</code>?</p>
