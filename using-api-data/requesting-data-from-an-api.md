@@ -175,7 +175,7 @@ The result of this configuration is that the API request has the parameters appe
 ```
 https://api.datamuse.com/words/?ml=logic
 ```
-If there user were to type in a different word, it would be appended to the URL instead of "logic". This allows the user to get the specific results they desire from our interface. 
+If the user were to type in a different word, it would be appended to the URL instead of "logic". This allows the user to get the specific results they desire from our interface. 
 
 The same technique for appending parameters to a request can be used to append API keys, other static parameters that make results more useful for users, and much more. We can also use expanded configurations of the `axios` call to change the request method or add other elements like authorization headers to the API request.
 
